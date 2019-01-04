@@ -1,0 +1,31 @@
+#Private transportation (pkm_private), public transportation (pkm_public) and freight transportation (tkm) demand
+#all based on {Moret, 2017}, {JASM transportation data package} {Prognos, 2012}
+#The transport demand is calculated based on the JASM transportation data package and data on the Swiss transportation system in 2011 from {Moret, 2017}, both data packages base on {Prognos, 2012}. The needed data is in passenger kilometres (pkm) for passenger transportation respectively in ton kilometres (tkm) for freight transportation. The data packages were all transformed to pkm and tkm. The data from 2011 is assumed as the transportation mode ratio and is assumed to stay constant over all considered years, therefore, the share of each mode stays the same between the years 2015, 2035 and 2050. The total demand development between the considered years is based on {Prognos, 2012}. The demand separation on cantonal level is based on the population of each canton. The transport demand data is interpolated within the considered years and is assumed to stay constant over the year. The distinction between pkm private passenger transportation and pkm public passenger transportation bases on an assumed ratio, which is assumed to stay constant. It is assumed, 20% of the total pkm demand is provided by public transportation and 80% by private passenger transportation {SFOS, 2018}.
+
+techs:
+  demand_pkm_private:
+    essentials:
+      name: 'Private passenger mobility'
+      carrier: pkm_private
+      parent: demand
+      color: '#072486'
+    constraints:
+      resource: file=demand_pkm_private.csv #in pkm
+  
+  demand_pkm_public:
+    essentials:
+      name: 'Public transportation passenger mobility'
+      carrier: pkm_public
+      parent: demand
+      color: '#072486'
+    constraints:
+      resource: file=demand_pkm_public.csv #in pkm
+  
+  demand_tkm:
+    essentials:
+      name: 'Freight mobility'
+      carrier: tkm 
+      parent: demand
+      color: '#072486'
+    constraints:
+      resource: file=demand_tkm.csv #in tkm

@@ -1,0 +1,42 @@
+techs:
+#the charge rates are 1h, because for all storage technologies the lowest value for discharge is 1h {Luo et al., 2015} and shorter discharge rates are not considered, because the model is built on a hourly resolution
+#for all storage technologies always the lowest value of the storage_cap and the om_annual is taken in the presented ranges, for energy_eff and lifetime the highest values of the range are taken
+
+  ltheat_storage:    
+    essentials: 
+      parent: storage
+      carrier_in: ltheat
+      carrier_out: ltheat
+      name: 'Thermal low temperature heat storage' 
+      color: '#F6E3CE' 
+    constraints: 
+      storage_cap_max: inf 
+      energy_cap_max: inf
+      charge_rate: 1 
+      energy_eff: 0.6 #{Chen et al., 2009}, range: 0.3-0.6
+      lifetime: 20 #{Chen et al., 2009}, range: 5-20
+    costs:
+      monetary: 
+        interest_rate: 0.025 
+        storage_cap: 20 #CHF/kWh, {Chen et al., 2009}, range for low temperature heat storage: 20-50 CHF/kWh, the US$ to CHF exchange rate is assumed to be 1:1
+        om_annual: 0.1 #CHF/kW/y, assumption based on {Delta Energy & Environment Ltd., 2016}{Chen et al., 2009}, range: 0.1-0.15 CHF/kWh, assumption: {Delta Energy & Environment Ltd., 2016} propose that the operation and maintenance costs are approximately 1% of the investment costs, therefore, the energy capital costs based on {Chen et al., 2009} are taken, divided by the lifetime and calculated to 1% of this value (200$/kW*0.01/20=0.1)
+  
+  htheat_storage:    
+    essentials: 
+      parent: storage
+      carrier_in: htheat
+      carrier_out: htheat
+      name: 'Thermal high temperature heat storage' 
+      color: '#F6E3CE' 
+    constraints: 
+      storage_cap_max: inf 
+      energy_cap_max: inf
+      charge_rate: 1 
+      energy_eff: 0.6 #{Chen et al., 2009}, range: 0.3-0.6
+      lifetime: 20 #{Chen et al., 2009}, range: 5-20
+    costs:
+      monetary: 
+        interest_rate: 0.025 
+        storage_cap: 30 #CHF/kWh, {Chen et al., 2009}, range for high temperature heat storage: 30-60 CHF/kWh, the US$ to CHF exchange rate is assumed to be 1:1
+        om_annual: 0.1 #CHF/kW/y, assumption based on {Delta Energy & Environment Ltd., 2016}{Chen et al., 2009}, range: 0.1-0.15 CHF/kWh, assumption: {Delta Energy & Environment Ltd., 2016} propose that the operation and maintenance costs are approximately 1% of the investment costs, therefore, the energy capital costs based on {Chen et al., 2009} are taken, divided by the lifetime and calculated to 1% of this value (200$/kW*0.01/20=0.1)
+

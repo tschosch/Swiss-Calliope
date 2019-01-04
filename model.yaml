@@ -1,0 +1,192 @@
+import:
+    - techs.yaml
+    - locations.yaml
+    - scenarios.yaml
+model:
+  name: UK-Calliope
+  calliope_version: 0.6.3
+  timeseries_data_path: timeseries_data
+  reserve_margin:
+    electricity: 0.1
+  subset_time: ['2015-01-01', '2015-12-31']
+  #the subset_time for 2035 and 2050 is defined in the scenarios.yaml file
+
+  time:
+    function: resample
+    function_options: {'resolution': '24H'} #here the resolution could be increased, all data is available on a hourly basis
+
+run:
+  cyclic_storage: true
+  ensure_feasibility: true
+  bigM: 1e9
+    
+  solver: gurobi
+  solver_io: lp
+  solver_options:
+    Threads: 4
+
+
+locations:
+  AG,AI_AR,BE_JU,BL_BS,FR,GE_VD,GL,GR,LU,NE,NW_OW_UR,SG,SH_ZH,SO,SZ_ZG,TG,TI,VS:
+    techs:  # Technologies to permit in all locations by default
+    #electricity
+      centralized_geothermal_electricity:
+      combined_cycle_plant:
+      hydro_runofriver:
+      runofriver_water_supply:
+      supply_water:
+      storage_water:
+      hydropower_plant:
+      hydro_pumped_storage:
+      import_electricity:
+      export_electricity:
+      nuclear_power:
+      photovoltaic:
+      battery_storage:
+      caes_storage:
+      hydrogen_storage:
+      wind:
+    #heat
+      gas_boiler:
+      wood_boiler:
+      biowaste_boiler:
+      lfo_boiler:
+      coal_boiler:
+      centralized_geothermal_heat:
+      electric_heating:
+      heat_pump:
+      solar_thermal:
+      htheat_storage:
+      ltheat_storage: 
+    #heat&power
+      combined_heat_power_naturalgas:
+      combined_heat_power_biowaste:
+      combined_heat_power_wood:
+      combined_heat_power_liquidfueloil:
+      waste_incineration_plant:
+      fuel_cell:
+    #primary supply
+      wood_supply:
+      supply_waste:
+      supply_biowaste:
+      supply_coal:
+      supply_diesel:
+      biomass_to_diesel: 
+      supply_gasoline:
+      naturalgas_hydrogen:
+      electricity_hydrogen:
+      biomass_to_hydrogen:
+      supply_liquidfueloil:
+      supply_naturalgas:
+      biomass_to_naturalgas:
+      supply_nuclear:
+    #mobility
+      diesel_car: 
+      gasoline_car:
+      naturalgas_car: 
+      battery_electric_vehicle:
+      hybrid_electric_vehicle:
+      fuel_cell_car: 
+      public_tram_trolley:
+      diesel_bus: 
+      hybrid_bus:
+      naturalgas_bus:
+      fuel_cell_bus: 
+      public_train: 
+      freight_diesel:
+      freight_hydrogen:
+      freight_train:
+      freight_electricity:
+    #transmission
+      electricity_transmission:
+      naturalgas_transmission:  
+      liquidfueloil_transmission:  
+      wood_transmission:  
+      diesel_transmission:  
+      gasoline_transmission: 
+      biowaste_transmission:
+      waste_transmission:  
+      coal_transmission:  
+      hydrogen_transmission:  
+    #demand
+      demand_electricity:
+      demand_ltheat:
+      demand_htheat:
+      demand_pkm_private:
+      demand_pkm_public:
+      demand_tkm:
+
+
+#The coordinates of the model regions are determined by the centroid of the canton with the largest area in the model region.
+  AG:
+    coordinates:
+      lat: 47.41205254
+      lon: 8.153818885
+  AI_AR:
+    coordinates:
+      lat: 47.36728583
+      lon: 9.352316094
+  BE_JU:
+    coordinates:
+      lat: 46.82462796
+      lon: 7.626573512
+  BL_BS:
+    coordinates:
+      lat: 47.45674004
+      lon: 7.698348215
+  FR:
+    coordinates:
+      lat: 46.71928454
+      lon: 7.08152671
+  GE_VD:
+    coordinates:
+      lat: 46.57106304
+      lon: 6.656041293
+  GL:
+    coordinates:
+      lat: 46.98409963
+      lon: 9.057134611
+  GR:
+    coordinates:
+      lat: 46.65701831
+      lon: 9.619531565
+  LU:
+    coordinates:
+      lat: 47.06752302
+      lon: 8.107586575
+  NE:
+    coordinates:
+      lat: 46.99614038
+      lon: 6.779385305
+  NW_OW_UR:
+    coordinates:
+      lat: 46.77528578
+      lon: 8.625315294
+  SG:
+    coordinates:
+      lat: 47.23320752
+      lon: 9.265042667
+  SH_ZH:
+    coordinates:
+      lat: 47.4174967
+      lon: 8.646469852
+  SO:
+    coordinates:
+      lat: 47.30465449
+      lon: 7.64087857
+  SZ_ZG:
+    coordinates:
+      lat: 47.06365518
+      lon: 8.749293401
+  TG:
+    coordinates:
+      lat: 47.56337769
+      lon: 9.108873449
+  TI:
+    coordinates:
+      lat: 46.29431611
+      lon: 8.798200379
+  VS:
+    coordinates:
+      lat: 46.20951089
+      lon: 7.585500528

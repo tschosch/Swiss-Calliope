@@ -1,0 +1,94 @@
+#The installed waste incineration plant capacity
+#based on {SFOE, 2016} retrieved from the list of all KEV beneficiaries, for biomass for waste incineration plant and sewage sludge incineration. The potential of waste (no biowaste) is assumed to not increasing, therefore, the energy_cap is fixed.
+
+locations: 
+  AG:
+    techs:
+      waste_incineration_plant:
+        constraints:
+          energy_cap_equals:  11150  #kW   
+  AI_AR:
+    techs:
+      waste_incineration_plant:
+        constraints:
+          energy_cap_equals:  0  #kW
+  BE_JU:
+    techs:
+      waste_incineration_plant:
+        constraints:
+          energy_cap_equals:  17000  #kW
+  BL_BS:
+    techs:
+      waste_incineration_plant:
+        constraints:
+          energy_cap_equals:  20580  #kW   
+  FR:
+    techs:
+      waste_incineration_plant:
+        constraints:
+          energy_cap_equals:  0  #kW
+  GE_VD:
+    techs:
+      waste_incineration_plant:
+        constraints:
+          energy_cap_equals:  21240  #kW
+  GL:
+    techs:
+      waste_incineration_plant:
+        constraints:
+          energy_cap_equals:  0  #kW
+  GR:
+    techs:
+      waste_incineration_plant:
+        constraints:
+          energy_cap_equals:  0  #kW
+  LU:
+    techs:
+      waste_incineration_plant:
+        constraints:
+          energy_cap_equals:  27380  #kW
+  NE:
+    techs:
+      waste_incineration_plant:
+        constraints:
+          energy_cap_equals:  0  #kW
+  NW_OW_UR:
+    techs:
+      waste_incineration_plant:
+        constraints:
+          energy_cap_equals:  0  #kW
+  SG:
+    techs:
+      waste_incineration_plant:
+        constraints:
+          energy_cap_equals:  11000  #kW
+  SH_ZH:
+    techs:
+      waste_incineration_plant:
+        constraints:
+          energy_cap_equals:  3100  #kW
+  SO:
+    techs:
+      waste_incineration_plant:
+        constraints:
+          energy_cap_equals:  21600  #kW
+  SZ_ZG:
+    techs:
+      waste_incineration_plant:
+        constraints:
+          energy_cap_equals:  0  #kW
+  TG:
+    techs:
+      waste_incineration_plant:
+        constraints:
+          energy_cap_equals:  0  #kW
+  TI:
+    techs:
+      waste_incineration_plant:
+        constraints:
+          energy_cap_equals:  18600  #kW
+  VS:
+    techs:
+      waste_incineration_plant:
+        constraints:
+          energy_cap_equals:  21000  #kW

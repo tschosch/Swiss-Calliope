@@ -1,0 +1,36 @@
+#it is assumed that natural gas can either be imported or produced by the conversion from biowaste and wood to natural gas
+
+techs:
+  supply_naturalgas:
+    essentials: 
+      parent: supply
+      name: 'Natural gas import'
+      color: '#BDBDBD'
+      carrier_out: naturalgas
+    constraints:
+      energy_cap_max: inf
+    costs:
+      monetary:
+        om_con: 0.0348 #CHF/kWhfuel, {Moret, 2017} {SFOS, 2015} {European Comission, 2011}
+      emissions:
+        om_prod: 0.267 #kgCO2eq/kWhfuel, {Moret, 2017}
+
+  biomass_to_naturalgas: #all values {Moret, 2017} {E4Tech, 2010}
+    essentials: 
+      parent: conversion_plus
+      carrier_in: [wood,biowaste] 
+      carrier_out: naturalgas #following {Moret, 2017} is Substitute Natural Gas (SNG), the actual end product of biomass gasification, here it is assumed to be Natural Gas (NG) 
+      primary_carrier_in: wood
+      name: 'Biomass gasification' 
+      color: '#FFBF00'
+    constraints: 
+      lifetime: 25 
+      energy_eff: 0.66 #the other products of the gasification (electricity and ltheat) are neglected because of their small shares, therefore the efficiency is the share of produced Natural Gas (NG)
+      energy_cap_max: inf
+    costs:
+      monetary: 
+        energy_cap: 2930 #CHF/kWfuel
+        om_annual: 149 #CHF/kWfuel/y
+        interest_rate: 0.025 
+ 
+    

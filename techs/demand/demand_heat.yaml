@@ -1,0 +1,23 @@
+#low temperature and high temperature heat demand in 2015, 2035 and 2050
+#all based on {Vögelin et al. 2016}, {Prognos, 2012}, {JASM data package on heat demand}
+#The high temperature heat demand is based on a data package from the joint activity and scenario modelling (JASM) on process heat, which is based on {Vögelin et al. 2016}, and {Prognos, 2012}. The JASM data package consists of demand patterns for process heat for a typical winter, spring, summer and autumn weekday and weekend day. The data is interpolated based on this particular demand distribution and standardized in hourly timesteps. The total demand projection for 2035 and 2050 is from Prognos and is multiplied by the standardized demand distribution of 2015. The separation on cantonal level is based on the population of each canton. 
+#The low temperature heat demand consists of water heating, space heating and, air-conditioning, heating and ventilation technology demands. The three different low temperature heat demand patterns are all retrieved from the JASM data platform and are assumed similar as for the high temperature heat demand.
+
+techs:
+  demand_ltheat:
+    essentials:
+      name: 'Low temperature heat demand'
+      carrier: ltheat
+      parent: demand
+      color: '#072486'
+    constraints:
+      resource: file=demand_ltheat.csv #in kWh
+
+  demand_htheat:
+    essentials:
+      name: 'High temperature heat demand'
+      carrier: htheat
+      parent: demand
+      color: '#072486'
+    constraints:
+      resource: file=demand_htheat.csv #in kWh

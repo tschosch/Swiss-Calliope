@@ -1,0 +1,20 @@
+techs:
+  photovoltaic:
+    essentials: 
+      parent: supply_electricity
+      name: 'Photovoltaics'
+      color: '#FFFF00'
+    constraints:
+      resource: file=solar_pot.csv #in kw/m^2, retrieved from {www.renewables.ninja}, that is based on {Pfenninger & Staffell, 2016} and {Staffell & Pfenninger, 2016} with data from 2015. #for each region the pricipal place of the canton is taken as reference, if several cantons are merged as one region, the potential of each principal place is taken and the potential is combinded by weighting the surface area of the cantons
+      resource_unit: energy_per_cap 
+      energy_cap_max: inf #defined in the locations 
+      energy_eff: 1
+      lifetime: 25 #{European Photovoltaic Technology Platform, 2011}
+    costs:
+      monetary:
+        interest_rate: 0.025
+        energy_cap: 1000 #CHF/kWele, {IEA, 2014} {Moret, 2017}
+        om_annual: 15.9 #CHF/kWele/y, {IEA, 2014} {Moret, 2017}
+      emissions:
+        energy_cap: 2081 #kgCO2/kWele, {Weidema et al., 2013} {Moret, 2017}
+        interest_rate: 0

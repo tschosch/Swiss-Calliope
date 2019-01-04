@@ -1,0 +1,125 @@
+techs:  
+  combined_heat_power_naturalgas:
+    essentials: 
+      parent: conversion_plus 
+      carrier_in: naturalgas 
+      carrier_out: electricity 
+      carrier_out_2: [ltheat,htheat] 
+      primary_carrier_out: ltheat
+      name: 'Gas combined heat and power plant' 
+      color: '#58D3F7' 
+    constraints: 
+      energy_cap_max: inf 
+      energy_eff: 1 
+      carrier_ratios:
+        carrier_out: 0.44 #{Moret, 2017}
+        carrier_out_2: {lth: 0.23, hth: 0.23} #{Moret, 2017} {Bauer et al., 2008} #assumed to be half ltheat and half htheat of the heat produced
+      lifetime: 20 #{Bauer et al., 2008}
+    costs:
+      monetary: 
+        interest_rate: 0.025 
+        energy_cap: 1504 #CHF/kWth, {Moret, 2017} {Prognos, 2012}
+        om_annual: 98.9 #CHF/kWth/y, {Moret, 2017} {Prognos, 2007}
+      emissions:
+        energy_cap: 1024 #kgCO2eq/kWth, {Weidema et al., 2013}
+        interest_rate: 0
+
+  combined_heat_power_biowaste:
+    essentials:   
+      parent: conversion_plus 
+      carrier_in: biowaste 
+      carrier_out: electricity 
+      carrier_out_2: [ltheat,htheat]
+      primary_carrier_out: ltheat
+      name: 'Biowaste combined heat and power plant' 
+      color: '#4B610B' 
+    constraints: 
+      energy_cap_max: inf 
+      energy_eff: 1 
+      carrier_ratios:
+        carrier_out: 0.2 #{Arup, 2011}
+        carrier_out_2: {lth: 0.225, hth: 0.225} #{Arup, 2011} #assumed to be half ltheat and half htheat of the heat produced
+      lifetime: 25 #{Arup, 2011}
+    costs:
+      monetary: 
+        interest_rate: 0.025 
+        energy_cap: 3127 #CHF/kWth, {Moret, 2017} {IEA, 2014} 
+        om_annual: 119 #CHF/kWth/y, {Moret, 2017} {IEA, 2014} 
+      emissions:
+        energy_cap: 647.8 #kgCO2eq/kWth, {Moret, 2017}
+        interest_rate: 0
+
+  waste_incineration_plant: #assumed to have the same parameters as the combined_heat_power_waste plant
+    essentials:   
+      parent: conversion_plus
+      carrier_in: waste
+      carrier_out: electricity 
+      carrier_out_2: [ltheat,htheat]
+      primary_carrier_out: ltheat
+      name: 'Waste incineration plant' 
+      color: '#4B610B' 
+    constraints: 
+      energy_cap_max: inf 
+      energy_eff: 1 
+      carrier_ratios:
+        carrier_out: 0.2 #{Arup, 2011}
+        carrier_out_2: {lth: 0.225, hth: 0.225} #{Arup, 2011} #assumed to be half ltheat and half htheat of the heat produced
+      lifetime: 25 #{Arup, 2011}
+    costs:
+      monetary: 
+        interest_rate: 0.025 
+        energy_cap: 3127 #CHF/kWth, {Moret, 2017} {IEA, 2014} 
+        om_annual: 119 #CHF/kWth/y, {Moret, 2017} {IEA, 2014} 
+      emissions:
+        energy_cap: 647.8 #kgCO2eq/kWth, {Moret, 2017}
+        interest_rate: 0
+
+  combined_heat_power_wood:
+    essentials: 
+      parent: conversion_plus 
+      carrier_in: wood 
+      carrier_out: electricity 
+      carrier_out_2: [ltheat,htheat] 
+      primary_carrier_out: ltheat
+      name: 'Wood combined heat and power plant' 
+      color: '#86B404' 
+    constraints: 
+      energy_cap_max: inf 
+      energy_eff: 1 
+      carrier_ratios:
+        carrier_out: 0.18 #{IEA, 2014} 
+        carrier_out_2: {lth: 0.265, hth: 0.265} #{IEA, 2014} #assumed to be half ltheat and half htheat of the heat produced
+      lifetime: 25 #{Arup, 2011}
+    costs:
+      monetary: 
+        interest_rate: 0.025 
+        energy_cap: 1154 #CHF/kWth, {IEA, 2014}
+        om_annual: 43.2 #CHF/kWth/y, {IEA, 2014}
+      emissions:
+        energy_cap: 165.3 #kgCO2eq/kWth, {Weidema et al., 2013}
+        interest_rate: 0
+  
+  combined_heat_power_liquidfueloil:
+    essentials: 
+      parent: conversion_plus 
+      carrier_in: liquidfueloil 
+      carrier_out: electricity 
+      carrier_out_2: [ltheat,htheat] 
+      primary_carrier_out: ltheat
+      name: 'Oil combined heat and power plant' 
+      color: '#58D3F7' 
+    constraints: 
+      energy_cap_max: inf 
+      energy_eff: 1 
+      carrier_ratios:
+        carrier_out: 0.39 #{Moret, 2017} {Weidema et al., 2013}
+        carrier_out_2: {lth: 0.215, hth: 0.215} #{Moret, 2017} {Weidema et al., 2013} #assumed to be half ltheat and half htheat of the heat produced
+      lifetime: 20 #{Moret, 2017}
+    costs:
+      monetary: 
+        interest_rate: 0.025 
+        energy_cap: 1394 #CHF/kWth, {Moret, 2017} {Prognos, 2012}
+        om_annual: 87.5 #CHF/kWth/y, {Moret, 2017} {Prognos, 2007}
+      emissions:
+        energy_cap: 1024 #kgCO2eq/kWth, {Moret, 2017} assumed to have the same impact as the gas combined heat and power plant
+        interest_rate: 0

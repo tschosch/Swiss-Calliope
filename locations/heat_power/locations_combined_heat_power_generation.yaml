@@ -1,0 +1,94 @@
+#the minimum installed combined heat and power biowaste plants in the baseline 2015
+#based on {SFOE, 2016} retrieved from the list of all KEV beneficiaries, for biomass except for waste incineration plant 
+
+locations: 
+  AG:
+    techs:
+      combined_heat_power_biowaste:
+        constraints:
+          energy_cap_min:  6361  #kW   
+  AI_AR:
+    techs:
+      combined_heat_power_biowaste:
+        constraints:
+          energy_cap_min:  824  #kW
+  BE_JU:
+    techs:
+      combined_heat_power_biowaste:
+        constraints:
+          energy_cap_min:  44793.3  #kW
+  BL_BS:
+    techs:
+      combined_heat_power_biowaste:
+        constraints:
+          energy_cap_min:  1365  #kW   
+  FR:
+    techs:
+      combined_heat_power_biowaste:
+        constraints:
+          energy_cap_min:  4429.3  #kW
+  GE_VD:
+    techs:
+      combined_heat_power_biowaste:
+        constraints:
+          energy_cap_min:  14758  #kW
+  GL:
+    techs:
+      combined_heat_power_biowaste:
+        constraints:
+          energy_cap_min:  0  #kW
+  GR:
+    techs:
+      combined_heat_power_biowaste:
+        constraints:
+          energy_cap_min:  21798  #kW
+  LU:
+    techs:
+      combined_heat_power_biowaste:
+        constraints:
+          energy_cap_min:  10045  #kW
+  NE:
+    techs:
+      combined_heat_power_biowaste:
+        constraints:
+          energy_cap_min:  610.1  #kW
+  NW_OW_UR:
+    techs:
+      combined_heat_power_biowaste:
+        constraints:
+          energy_cap_min:  784  #kW
+  SG:
+    techs:
+      combined_heat_power_biowaste:
+        constraints:
+          energy_cap_min:  9005  #kW
+  SH_ZH:
+    techs:
+      combined_heat_power_biowaste:
+        constraints:
+          energy_cap_min:  17108  #kW
+  SO:
+    techs:
+      combined_heat_power_biowaste:
+        constraints:
+          energy_cap_min:  1564  #kW
+  SZ_ZG:
+    techs:
+      combined_heat_power_biowaste:
+        constraints:
+          energy_cap_min:  4103  #kW
+  TG:
+    techs:
+      combined_heat_power_biowaste:
+        constraints:
+          energy_cap_min:  2625  #kW
+  TI:
+    techs:
+      combined_heat_power_biowaste:
+        constraints:
+          energy_cap_min:  1037  #kW
+  VS:
+    techs:
+      combined_heat_power_biowaste:
+        constraints:
+          energy_cap_min:  816  #kW

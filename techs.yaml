@@ -1,0 +1,52 @@
+import:
+#electricity
+  - techs/electricity/hydropower_storage_plant.yaml
+  - techs/electricity/hydropower_runofriver_plant.yaml
+  - techs/electricity/nuclear.yaml
+  - techs/electricity/photovoltaic.yaml
+  - techs/electricity/storage.yaml
+  - techs/electricity/wind.yaml
+  - techs/electricity/centralized_geothermal_electricity.yaml
+  - techs/electricity/combined_cycle_plant.yaml
+  - techs/electricity/import_export.yaml
+  #heat
+  - techs/heat/boiler.yaml
+  - techs/heat/centralized_geothermal_heat.yaml
+  - techs/heat/direct_electric_heating.yaml
+  - techs/heat/heat_pump.yaml
+  - techs/heat/solar_thermal.yaml
+  - techs/heat/storage_heat.yaml
+  #heat&power
+  - techs/heat_and_power/combined_heat_power_generation.yaml
+  - techs/heat_and_power/fuel_cell.yaml
+  #primary supply
+  - techs/primary_supply/biomass_waste_production.yaml
+  - techs/primary_supply/coal_import.yaml
+  - techs/primary_supply/diesel_production.yaml
+  - techs/primary_supply/gasoline_import.yaml
+  - techs/primary_supply/hydrogen_production.yaml
+  - techs/primary_supply/liquidfueloil_production.yaml
+  - techs/primary_supply/naturalgas_production.yaml
+  - techs/primary_supply/uranium_import.yaml
+  #mobility
+  - techs/mobility/freight_transportation.yaml
+  - techs/mobility/passenger_transportation.yaml
+  #transmission
+  - techs/transmission/transmission.yaml
+  #demand
+  - techs/demand/demand_electricity.yaml
+  - techs/demand/demand_heat.yaml
+  - techs/demand/demand_mobility.yaml
+tech_groups:
+    supply_electricity:
+        essentials:
+            carrier: electricity
+            parent: supply
+    storage_electricity:
+        essentials:
+            carrier: electricity
+            parent: storage
+    supply_ltheat:
+        essentials:
+            carrier: ltheat
+            parent: supply

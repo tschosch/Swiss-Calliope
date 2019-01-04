@@ -1,0 +1,14 @@
+techs:
+  supply_coal:
+    essentials: 
+      parent: supply 
+      carrier_out: coal 
+      name: 'Coal import' 
+      color: '#4f4a4a' 
+    constraints:
+      energy_cap_max: inf 
+    costs:
+      monetary:
+        om_con: 0.03017 #CHF/kWhfuel, {Moret, 2017} {AES, 2012} {European Comission, 2011}
+      emissions:
+        om_prod: 0.401 #kgCO2eq/kWhfuel, {Weidema et al., 2013}

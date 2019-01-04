@@ -1,0 +1,20 @@
+techs:
+  solar_thermal: #Decentralized heating technology
+    essentials: 
+      parent: supply_ltheat
+      name: 'Solar thermal' 
+      color: '#FFFF00'
+    constraints: 
+      resource: file=solar_pot.csv #kw/m^2, retrieved from {www.renewables.ninja} that is based on {Pfenninger & Staffell, 2016} and {Staffell & Pfenninger, 2016} with data from 2014 #the solar potential of the regions is based on the principal place of the Swiss cantons, if several Cantons are considered as one region, the mean power output is calculated based on the cantonal area (based on {SFOS, 2016c}) and different potentials in the principal places
+      resource_unit: energy_per_cap 
+      energy_cap_max: inf 
+      energy_eff: 1
+      lifetime: 20 #{Moret, 2017} {NERA Economic Consulting and AEA, 2009}
+    costs:
+      monetary: 
+        interest_rate: 0.025 
+        energy_cap: 768 #CHF/kWth, {Moret, 2017} {Rager & Maréchal, 2015} {Hoval SA, 2016}
+        om_annual: 8.64 #CHF/kWth/y, {Moret, 2017} {NERA Economic Consulting and AEA, 2009}
+      emissions:
+        energy_cap: 221.2 #kgCO2eq/kWth, {Moret, 2017} {Weidema et al., 2013}
+        interest_rate: 0

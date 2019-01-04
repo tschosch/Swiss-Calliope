@@ -1,0 +1,26 @@
+techs:  
+  fuel_cell: #{Moret, 2017} 
+    essentials: 
+      parent: conversion_plus 
+      carrier_in: hydrogen 
+      carrier_out: electricity 
+      carrier_out_2: ltheat
+      primary_carrier_in: hydrogen
+      primary_carrier_out: electricity 
+      name: 'Fuel cell' 
+      color: '#04b4ae' 
+    constraints: 
+      energy_cap_max: inf 
+      energy_eff: 1 
+      carrier_ratios:
+        carrier_out: 0.58 #{Moret, 2017} {Gerboni et al., 2008}
+        carrier_out_2: 0.22 #{Moret, 2017} {Gerboni et al., 2008}
+      lifetime: 20 #{Gerboni et al., 2008}
+    costs:
+      monetary: 
+        interest_rate: 0.025 
+        energy_cap: 7734 #CHF/kWth, {Battelle, 2014}
+        om_annual: 155 #CHF/kWth/y, {IEA, 2014}
+      emissions:
+        energy_cap: 2193 #kgCO2eq/kWth, {Weidema et al., 2013}
+        interest_rate: 0

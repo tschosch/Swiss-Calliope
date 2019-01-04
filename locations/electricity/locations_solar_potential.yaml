@@ -1,0 +1,96 @@
+#the maximum installed wind capacity for each model region in kW
+#all based on {Tröndle et al., 2018} {Tröndle, 2018}
+#The wind capacity is based on {Tröndle et al. 2018}. The data is available on a cantonal basis. For each canton the cantonal area is separated in not eligible for wind or PV, eligible for rooftop PV, eligible for PV and wind and eligible for wind. The eligible for PV and wind is assumed to be eligible for solely PV, since the wind acceptance is limited in Switzerland. The area data (km2) is then calculated into capacity (kW) based on values from Tröndle et al. (2018). For wind as 8 W/m2. For the primary sources for these values consider the model documentation on GitHub from {Tröndle, 2018}. 
+
+locations: 
+  AG:
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_max: 5230717.763 #kW   
+           
+  AI_AR:
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_max: 584650.2237 #kW
+  BE_JU:
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_max: 12469665.01 #kW
+  BL_BS:
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_max: 2028107.091 #kW   
+  FR:
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_max: 3850293.862 #kW
+  GE_VD:
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_max: 14909550.42 #kW
+  GL:
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_max: 458635.7917 #kW
+  GR:
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_max: 1853877.92 #kW
+  LU:
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_max: 3288329.747 #kW
+  NE:
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_max: 2660362.589 #kW
+  NW_OW_UR:
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_max: 879416.8819 #kW
+  SG:
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_max: 5638996.703 #kW
+  SH_ZH:
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_max: 8687746.489 #kW
+  SO:
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_max: 2904391.974 #kW
+  SZ_ZG:
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_max: 2366260.285 #kW
+  TG:
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_max: 3208533.189 #kW
+  TI: 
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_max: 2377663.152 #kW
+  VS:
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_max: 3169178.719 #kW

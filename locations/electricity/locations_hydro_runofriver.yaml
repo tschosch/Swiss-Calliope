@@ -1,0 +1,92 @@
+locations: #the installed hydro run of river storage capacity in kW for each model region
+# all based on {DETEC & SFOE, 2015}, the Swiss hydropower plant statistics 2015
+  AG:
+    techs:
+      hydro_runofriver:
+        constraints:
+          energy_cap_equals:  370163.24  #kW   
+  AI_AR:
+    techs:
+      hydro_runofriver:
+        constraints:
+          energy_cap_equals:  3034.25  #kW
+  BE_JU:
+    techs:
+      hydro_runofriver:
+        constraints:
+          energy_cap_equals:  182591.32  #kW
+  BL_BS:
+    techs:
+      hydro_runofriver:
+        constraints:
+          energy_cap_equals:  65366.44  #kW   
+  FR:
+    techs:
+      hydro_runofriver:
+        constraints:
+          energy_cap_equals:  17977.17  #kW
+  GE_VD:
+    techs:
+      hydro_runofriver:
+        constraints:
+          energy_cap_equals:  154885.84  #kW
+  GL:
+    techs:
+      hydro_runofriver:
+        constraints:
+          energy_cap_equals:  48737.44  #kW
+  GR:
+    techs:
+      hydro_runofriver:
+        constraints:
+          energy_cap_equals:  266420.09  #kW
+  LU:
+    techs:
+      hydro_runofriver:
+        constraints:
+          energy_cap_equals:  6017.12  #kW
+  NE:
+    techs:
+      hydro_runofriver:
+        constraints:
+          energy_cap_equals:  14705.48  #kW
+  NW_OW_UR:
+    techs:
+      hydro_runofriver:
+        constraints:
+          energy_cap_equals:  165576.48  #kW
+  SG:
+    techs:
+      hydro_runofriver:
+        constraints:
+          energy_cap_equals:  29785.39  #kW
+  SH_ZH:
+    techs:
+      hydro_runofriver:
+        constraints:
+          energy_cap_equals:  88066.21  #kW
+  SO:
+    techs:
+      hydro_runofriver:
+        constraints:
+          energy_cap_equals:  62239.73  #kW
+  SZ_ZG:
+    techs:
+      hydro_runofriver:
+        constraints:
+          energy_cap_equals:  31783.11  #kW
+  TG:
+    techs:
+      hydro_runofriver:
+        constraints:
+          energy_cap_equals:  7907.53  #kW
+  TI:
+    techs:
+      hydro_runofriver:
+        constraints:
+          energy_cap_equals:  108453.2  #kW
+  VS:
+    techs:
+      hydro_runofriver:
+        constraints:
+          energy_cap_equals:  379686.07  #kW

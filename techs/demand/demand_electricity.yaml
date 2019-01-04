@@ -1,0 +1,13 @@
+#electricity demand in 2015, 2035 and 2050
+#based on {Swissgrid, 2015}, {Prognos, 2012}
+#The data of Swissgrid is available on a 15 minutes resolution during the year for each model region. For the calculation of the demand data 2015, the resolution was decreased on an hourly resolution. The total electricity demand data of 2035 and 2050 is based on {Prognos, 2012}. The same demand patterns as for 2015 are assumed and also the same demand distribution across the cantons. The electricity demand data is assumed to follow the projections of the new policy scenario presented by Prognos.
+
+techs:
+  demand_electricity:
+    essentials:
+      name: 'Electricity demand'
+      carrier: electricity
+      parent: demand
+      color: '#072486'
+    constraints:
+      resource: file=demand_electricity.csv #in kWh

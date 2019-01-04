@@ -1,0 +1,20 @@
+techs:
+  combined_cycle_plant: 
+    essentials:
+      parent: conversion
+      name: 'Combined cycle gas turbine'
+      carrier_in: naturalgas
+      carrier_out: electricity
+      color: '#BDBDBD'
+    constraints:
+      energy_eff: 0.63 #{Moret, 2017} {Bauer et al., 2008}
+      energy_cap_max: inf
+      lifetime: 25 #{Moret, 2017} {Bauer et al., 2008}
+    costs:
+      monetary:
+        interest_rate: 0.025 
+        energy_cap: 824 #CHF/kWele, {IEA, 2014} {Moret, 2017} 
+        om_annual: 21.1 #CHF/kWele/y, {IEA, 2014} {Moret, 2017}
+      emissions:
+        energy_cap: 183.8 #kgCO2eq/kWele, {Moret, 2017} {Weidema et al., 2013}
+        interest_rate: 0

@@ -1,0 +1,37 @@
+techs: 
+  import_electricity:
+    essentials: 
+      color: '#E68A31'
+      name: Electricity import
+      parent: supply_electricity
+      carrier: electricity
+    constraints:
+      energy_cap_max: inf #defined in the locations file
+      resource: inf
+    costs:
+      monetary:
+        om_prod: 0.0906 #CHF/kWh, electricity import price, {Moret, 2017}
+      emissions:
+        om_prod: 0.482 #kgCO2eq/kWhelectricity, {Moret, 2017}
+  
+  export_electricity_conversion:
+    essentials: 
+      color: '#2E8A31'
+      name: Electricity export conversion
+      parent: conversion
+      carrier_in: electricity
+      carrier_out: electricity_export
+    constraints:
+      energy_cap_max: inf #defined in the locations file
+    costs:
+      monetary:
+        om_prod: -0.0906 #CHF/kWh, assumed to be as high as import price
+  
+  export_electricity:
+    essentials: 
+      color: '#2E8A31'
+      name: Electricity export
+      parent: demand
+      carrier: electricity
+    constraints:
+      resource: inf

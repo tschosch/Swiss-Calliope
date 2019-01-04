@@ -1,0 +1,150 @@
+techs:
+#passenger cars
+  diesel_car: #all values {Moret, 2017}
+    essentials: 
+      parent: conversion 
+      carrier_in: diesel 
+      carrier_out: pkm_private
+      name: 'Diesel car' 
+      color: '#424242' 
+    constraints: 
+      energy_cap_max: inf 
+      energy_eff: 2.584 #pkm/kWhinput 
+
+  gasoline_car: #all values {Moret, 2017}
+    essentials: 
+      parent: conversion 
+      carrier_in: gasoline
+      carrier_out: pkm_private
+      name: 'Gasoline car' 
+      color: '#6E6E6E' 
+    constraints: 
+      energy_cap_max: inf 
+      energy_eff: 2.326 #pkm/kWhinput  
+
+  naturalgas_car: #all values {Moret, 2017}
+    essentials: 
+      parent: conversion 
+      carrier_in: naturalgas 
+      carrier_out: pkm_private 
+      name: 'Natural gas car' 
+      color: '#58D3F7' 
+    constraints: 
+      energy_cap_max: inf 
+      energy_eff: 2.070 #pkm/kWhinput 
+
+  battery_electric_vehicle: #all values {Moret, 2017}
+    essentials: 
+      parent: conversion 
+      carrier_in: electricity 
+      carrier_out: pkm_private 
+      name: 'Battery electric vehicle' 
+      color: '#B18904' 
+    constraints: 
+      energy_cap_max: inf 
+      energy_eff: 9.346 #pkm/kWhinput 
+  
+  hybrid_electric_vehicle: #all values {Moret, 2017}
+    essentials: 
+      parent: conversion 
+      carrier_in: gasoline 
+      carrier_out: pkm_private 
+      name: 'Hybrid electric vehicle' 
+      color: '#B18904' 
+    constraints: 
+      energy_cap_max: inf 
+      energy_eff: 4.049 #pkm/kWhinput 
+
+  plugin_hybrid_electric_vehicle: #all values {Moret, 2017}
+    essentials:
+      parent: conversion_plus
+      carrier_in: electricity
+      carrier_in_2: gasoline
+      carrier_out: pkm_private
+      primary_carrier_in: gasoline
+      name: 'Plugin Hybrid electric vehicle'
+      color: '#B18904'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 27.902
+      carrier_ratios:
+        carrier_in: 22.22
+        carrier_in_2: 5.682
+
+  fuel_cell_car: #all values {Moret, 2017}
+    essentials: 
+      parent: conversion 
+      carrier_in: hydrogen 
+      carrier_out: pkm_private 
+      name: 'Fuel cell car' 
+      color: '#B18904' 
+    constraints: 
+      energy_cap_max: inf 
+      energy_eff: 5.587 #pkm/kWhinput 
+
+#public transportation
+  public_tram_trolley: #all values {Moret, 2017}
+    essentials: 
+      parent: conversion 
+      carrier_in: electricity 
+      carrier_out: pkm_public
+      name: 'Public tram or trolley bus' 
+      color: '#DBA901' 
+    constraints: 
+      energy_cap_max: inf 
+      energy_eff: 6.061 #pkm/kWhinput
+
+  diesel_bus: #all values {Moret, 2017}
+    essentials: 
+      parent: conversion 
+      carrier_in: diesel 
+      carrier_out: pkm_public 
+      name: 'Diesel bus' 
+      color: '#424242' 
+    constraints: 
+      energy_cap_max: inf 
+      energy_eff: 3.774 #pkm/kWhinput
+
+  hybrid_bus: #all values {Moret, 2017}
+    essentials: 
+      parent: conversion 
+      carrier_in: diesel 
+      carrier_out: pkm_public 
+      name: 'Diesel Hybrid electric bus' 
+      color: '#424242' 
+    constraints: 
+      energy_cap_max: inf 
+      energy_eff: 5.46 #pkm/kWhinput    
+
+  naturalgas_bus: #all values {Moret, 2017}
+    essentials: 
+      parent: conversion 
+      carrier_in: naturalgas 
+      carrier_out: pkm_public 
+      name: 'Natural gas bus' 
+      color: '#886A08' 
+    constraints: 
+      energy_cap_max: inf 
+      energy_eff: 3.268 #pkm/kWhinput
+  
+  fuel_cell_bus: #all values {Moret, 2017}
+    essentials: 
+      parent: conversion 
+      carrier_in: hydrogen 
+      carrier_out: pkm_public 
+      name: 'Fuel cell bus' 
+      color: '#886A08' 
+    constraints: 
+      energy_cap_max: inf 
+      energy_eff: 4.444 #pkm/kWhinput
+
+  public_train: #all values {Moret, 2017}
+    essentials: 
+      parent: conversion 
+      carrier_in: electricity 
+      carrier_out: pkm_public 
+      name: 'Public train' 
+      color: '#FFBF00' 
+    constraints: 
+      energy_cap_max: inf 
+      energy_eff: 10.87 #pkm/kWhinput

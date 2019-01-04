@@ -1,0 +1,21 @@
+techs:
+  electric_heating: 
+    essentials: 
+      parent: conversion_plus
+      carrier_in: electricity 
+      carrier_out: [ltheat, htheat]
+      primary_carrier_out: ltheat
+      name: 'Direct electric heating' 
+      color: '#ffdd00'
+    constraints: 
+      lifetime: 15 #{Moret, 2017}
+      energy_eff: 1 #{Moret, 2017}
+      energy_cap_max: inf 
+    costs:
+      monetary: 
+        energy_cap: 355 #CHF/kWth, {NERA Economic Consulting and AEA, 2009} {Moret, 2017}
+        om_annual: 1.61 #CHF/kWth/y, {NERA Economic Consulting and AEA, 2009} {Moret, 2017}
+        interest_rate: 0.025
+      emissions:
+        energy_cap: 1.47 #{Weidema et al., 2013} 
+        interest_rate: 0

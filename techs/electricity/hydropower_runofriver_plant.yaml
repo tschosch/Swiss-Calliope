@@ -1,0 +1,39 @@
+#run of river hydropower plant #the runofriver_water_supply defines the resource (run of river water supply), the hydro_runofriver converts the water into electricity
+#based on {JASM data package run-of-river production 2015}, the data package bases on {Viviroli et al., 2007} {SFOE, 2015} {DETEC & SFOE, 2015} {DETEC & SFOEN, 2015} 
+
+techs: 
+  runofriver_water_supply:
+    essentials: 
+      parent: supply 
+      carrier: runofriver_water 
+      name: 'Water supply run of river plant' 
+      color: '#0040FF'
+    constraints: 
+      resource: file=hydro_runofriver_pot.csv #kWh, the resources file is retrieved from the JASM data platform (run-of-river production 2015). The data package consists of the run of river production of each run of river plant in Switzerland on an hourly basis, the mean of all production facilities is assumed as resouce.
+      force_resource: true
+      energy_eff: 1.0 
+      energy_cap_max: inf 
+      lifetime: inf
+    costs: 
+      monetary:
+        om_annual: 0 
+         
+  hydro_runofriver:
+    essentials:
+      color: '#2E9AFE'
+      name: 'run of river hydro power'
+      parent: conversion
+      carrier_in: runofriver_water 
+      carrier_out: electricity
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 1 #the efficiency of the plants is already included in the values from the resources sheet
+      lifetime: 40 #{Moret, 2017} {AES, 2014b} 
+    costs:  
+      monetary:
+        interest_rate: 0.025  
+        energy_cap: 5387 #CHF/kWele, {Moret, 2017} {AES, 2014b}
+        om_annual: 53.9 #CHF/kWele/y, {Moret, 2017} {AES, 2014b}
+      emissions:
+        energy_cap: 1263 #kgCO2eq/kWele, {Weidema et al., 2013}
+        interest_rate: 0

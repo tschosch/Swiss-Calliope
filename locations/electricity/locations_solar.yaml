@@ -1,0 +1,95 @@
+#the installed photovoltaics capacity in the baseline 2015
+#the data is retrieved from {Open Power System Data, 2018} {SFOE, 2016b}
+#the data is based on {Open Power System Data, 2018}, the data on solar production is assumed to be the photovoltaics installed capacity. The data package is based on data about beneficiaries of the compensatory feed-in remuneration (KEV) of {SFOE, 2016b}.
+
+locations: 
+  AG:
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_equals:  4956.65  #kW   
+  AI_AR:
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_equals:  723.67  #kW
+  BE_JU:
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_equals:  10208.08  #kW
+  BL_BS:
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_equals:  2235.19  #kW  
+  FR:
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_equals:  2395.21  #kW
+  GE_VD:
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_equals:  7321.92  #kW
+  GL:
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_equals:  157.59  #kW
+  GR:
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_equals:  2928.12  #kW
+  LU:
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_equals:  6052.03  #kW
+  NE:
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_equals:  494.54  #kW
+  NW_OW_UR:
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_equals:  1058.22  #kW
+  SG:
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_equals:  5200.29  #kW
+  SH_ZH:
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_equals:  5563.16  #kW
+  SO:
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_equals:  4372.83  #kW
+  SZ_ZG:
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_equals:  1663.66  #kW
+  TG:
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_equals:  4448.16  #kW
+  TI: 
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_equals:  700.24  #kW
+  VS:
+    techs:
+      photovoltaic:
+        constraints:
+          energy_cap_equals:  1885.51  #kW

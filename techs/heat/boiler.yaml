@@ -1,0 +1,115 @@
+techs: 
+  gas_boiler:
+    essentials:  
+      parent: conversion_plus 
+      carrier_in: naturalgas 
+      carrier_out: [ltheat,htheat] 
+      primary_carrier_out: ltheat 
+      name: 'Gas boiler' #district heating technology
+      color: '#58D3F7' 
+    constraints:
+      lifetime: 17 #{European Comission, 2008}
+      energy_eff: 0.927 #{Moret, 2017}
+      energy_cap_max: inf 
+      carrier_ratios:
+        carrier_out: {ltheat: 1,htheat: 1}
+    costs:
+      monetary: 
+        interest_rate: 0.025 
+        energy_cap: 62.9 #CHF/kWth, {Pantaleo et al., 2014} {Moret, 2017}
+        om_annual: 1.26 #CHF/kWth/y, {Pantaleo et al., 2014} {Moret, 2017}
+      emissions:
+        energy_cap: 12.3 #kgCO2eq/kWth, {Moret ,2017} assumed same impact as lfo_boiler
+        interest_rate: 0
+  
+  wood_boiler:
+    essentials: 
+      parent: conversion_plus
+      carrier_in: wood 
+      carrier_out: [ltheat,htheat] 
+      primary_carrier_out: ltheat 
+      name: 'Wood boiler' #district heating technology
+      color: '#5FB404' 
+    constraints: 
+      energy_eff: 0.864 #{Moret, 2017}
+      lifetime: 17  #{European Comission, 2008} 
+      energy_cap_max: inf 
+      carrier_ratios:
+        carrier_out: {ltheat: 1,htheat: 1}
+    costs:
+      monetary: 
+        interest_rate: 0.025 
+        energy_cap: 123 #CHF/kWth, {Pantaleo et al., 2014} {Moret, 2017}
+        om_annual: 2.46 #CHF/kWth/y, {Pantaleo et al., 2014} {Moret, 2017}
+      emissions:
+        energy_cap: 28.9 #kgCO2eq/kWth, {Weidema et al., 2013}
+        interest_rate: 0
+    
+  biowaste_boiler:
+    essentials: 
+      parent: conversion_plus
+      carrier_in: biowaste 
+      carrier_out: [ltheat,htheat] 
+      primary_carrier_out: ltheat 
+      name: 'Biowaste boiler' #district heating technology
+      color: '#04b412' 
+    constraints: 
+      energy_eff: 0.82 #{Moret, 2017}
+      lifetime: 17  #{European Comission, 2008} 
+      energy_cap_max: inf 
+      carrier_ratios:
+        carrier_out: {ltheat: 1,htheat: 1}
+    costs:
+      monetary: 
+        interest_rate: 0.025 
+        energy_cap: 123 #CHF/kWth, {Moret, 2017} assumed to be equivalent to wood_boiler
+        om_annual: 2.46 #CHF/kWth/y, {Moret, 2017} assumed to be equivalent to wood_boiler
+      emissions:
+        energy_cap: 28.9 #kgCO2eq/kWth, {Moret, 2017} assumed to be equivalent to wood_boiler
+        interest_rate: 0
+  
+  lfo_boiler:
+    essentials: 
+      parent: conversion_plus 
+      carrier_in: liquidfueloil 
+      carrier_out: [ltheat, htheat]  
+      primary_carrier_out: ltheat
+      name: 'Liquid fuel oil (LFO) boiler' #district heating technology
+      color: '#61380B' 
+    constraints: 
+      lifetime: 17  #{European Comission, 2008} 
+      energy_eff: 0.873 #{Moret, 2017}
+      energy_cap_max: inf 
+      carrier_ratios:
+        carrier_out: {ltheat: 1,htheat: 1}
+    costs:
+      monetary: 
+        interest_rate: 0.025 
+        energy_cap: 58.6 #CHF/kWth, {Moret, 2017}
+        om_annual: 1.26 #CHF/kWth/y, {Moret, 2017} assumed to be equivalent to gas_boiler
+      emissions:
+        energy_cap: 12.3 #kgCO2eq/kWth, {Weidema et al., 2013}
+        interest_rate: 0
+  
+  coal_boiler:
+    essentials: 
+      parent: conversion_plus
+      carrier_in: coal 
+      carrier_out: [ltheat, htheat]  
+      primary_carrier_out: ltheat
+      name: 'Coal boiler' #district heating technology
+      color: '#4f4a4a' 
+    constraints: 
+      lifetime: 17  #{European Comission, 2008} 
+      energy_eff: 0.82 #{Moret, 2017}
+      energy_cap_max: inf 
+      carrier_ratios:
+        carrier_out: {ltheat: 1,htheat: 1}
+    costs:
+      monetary: 
+        interest_rate: 0.025 
+        energy_cap: 123 #CHF/kWth, {Moret, 2017} assumed to be equivalent to wood_boiler
+        om_annual: 2.46 #CHF/kWth/y, {Moret, 2017} assumed to be equivalent to wood_boiler
+      emissions:
+        energy_cap: 48.2 #kgCO2eq/kWth, {Weidema et al., 2013}
+        interest_rate: 0

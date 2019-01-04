@@ -1,0 +1,19 @@
+techs:
+  centralized_geothermal_heat: #all values {Moret, 2017}
+    essentials: 
+      parent: supply_ltheat
+      carrier_out: ltheat 
+      name: 'Centralized geothermal heat' #District heating technology
+      color: '#F78181'
+    constraints: 
+      resource: inf 
+      energy_cap_max: inf 
+      lifetime: 30
+    costs:
+      monetary: 
+        interest_rate: 0.025 
+        energy_cap: 1620 #CHF/kWth
+        om_annual: 60.1 #CHF/kWth/y
+      emissions:
+        energy_cap: 808.8 #kgCO2eq/kWth, {Weidema et al., 2013} {Moret, 2017}
+        interest_rate: 0

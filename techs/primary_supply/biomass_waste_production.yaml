@@ -1,0 +1,53 @@
+techs:
+#wood (domestic woody biomass)
+  wood_supply:
+    essentials: 
+      parent: supply 
+      carrier: wood 
+      name: 'Wood supply' 
+      color: '#BDBDBD' 
+    constraints: 
+      resource: file=wood_pot.csv #kWh, retrieved from a JASM data package based on {Bauer et al., 2017} for the national scale, the cantonal scale is calculated based on the area of the regions retrieved from {SFOS, 2016c}. The dataset incorporates forest wood, industrial wood residues, waste wood and wood from landscape maintenance. The sustainable values were taken and not the theoretically possible values.  
+      energy_eff: 1.0 
+      energy_cap_max: inf 
+      lifetime: inf
+    costs: 
+      monetary:
+        om_annual: 0.09324 #CHF/kWhfuel, {Moret, 2017} {WaldSchweiz, n.d.} {Prognos, 2012}
+      emissions:
+        om_prod: 0.0118 #kgCO2eq/kWhfuel, {Moret, 2017}
+
+#biowaste (domestic non-woody biomass)      
+  supply_biowaste:
+    essentials: 
+      parent: supply 
+      carrier_out: biowaste 
+      name: 'Biowaste supply' 
+      color: '#BDBDBD'
+    constraints: 
+      resource: file=biowaste_pot.csv #kWh, retrieved from a JASM data package based on {Bauer et al., 2017} for the national scale, the cantonal scale is calculated based on the area of the regions retrieved from {SFOS, 2016c}. The dataset incorporates animal manure, agricultural crop byproducts, industrial and commercial biowaste, organic part of household garbage, green waste collection and sewage sludge. The sustainable values were taken and not the theoretically possible values.  
+      force_resource: true 
+      energy_cap_max: inf
+      energy_eff: 1
+      lifetime: inf
+    costs: 
+      monetary:
+        om_annual: 0 
+      emissions:
+        om_prod: 0.0118 #kgCO2eq/kWhfuel, {Moret, 2017}, assumed to be the same as for Wood
+
+  #waste      
+  supply_waste: 
+    essentials: 
+      parent: supply 
+      carrier_out: waste 
+      name: 'Waste supply' 
+      color: '#BDBDBD'
+    constraints: 
+      resource: inf 
+      energy_cap_max: inf #defined in the location file, the capacity is the limiting factor and not the resource (waste)
+    costs: 
+      monetary:
+        om_annual: 0 
+      emissions:
+        om_prod: 0.15 #kgCO2eq/kWhfuel, {Moret, 2017}, the assumption for municipal solid waste

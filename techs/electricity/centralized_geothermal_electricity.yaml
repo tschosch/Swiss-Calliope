@@ -1,0 +1,19 @@
+techs:
+  centralized_geothermal_electricity: 
+    essentials: 
+      parent: supply_electricity
+      carrier_out: electricity 
+      name: 'Centralized geothermal electricity' 
+      color: '#F78181'
+    constraints: 
+      resource: inf 
+      energy_cap_max: 700000 #in kW, {Prognos,2012} {Moret, 2017}
+      lifetime: 30 #{Moret, 2017}
+    costs:
+      monetary: 
+        interest_rate: 0.025 
+        energy_cap: 11464 #in CHF/kWele, {Moret, 2017}
+        om_annual: 465 #in CHF/kWele/y, {Moret, 2017}
+      emissions:
+        energy_cap: 24.93 #kgCO2eq/kWele, {Moret, 2017} {Weidema et al., 2013}
+        interest_rate: 0

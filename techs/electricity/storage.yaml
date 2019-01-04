@@ -1,0 +1,77 @@
+techs: 
+#all charge rates are 1h, because for all storage technologies the lowest value for discharge is 1h based on {Luo et al., 2015} and shorter discharge rates are not considered, because the model is built for a hourly resolution
+#for all storage technologies always the lowest value of the storage_cap and the om_annual is taken in the presented ranges, for energy_eff and lifetime the highest values of the range are taken
+
+#Battery storage  
+  battery_storage: #only battery storage types for long-term balancing considered
+    essentials:    
+      parent: storage_electricity
+      name: 'Battery storage'
+      color: '#C8FE2E'   
+    constraints:
+      storage_cap_max: inf  
+      energy_cap_max: inf
+      charge_rate: 1 
+      energy_eff: 0.85 #{Shoenung, 2001} {Barin et al., 2009}, range: 60-85%, depending on the type of battery
+      lifetime: 20 #{Luo et al., 2015}, range: 5-20+ years
+    costs:
+      monetary:
+        interest_rate: 0.025 
+        storage_cap: 150 #CHF/kWh, {Chen et al., 2009} {Hadjipaschalis et al., 2009}, range: 150-2400 CHF/kWh, variates strongly for different battery types, the US$ to CHF exchange rate is assumed to be 1:1
+        om_annual: 20 # CHF/kW/y, {Paul, 2009}, range: 20-80 CHF/kW/y, the US$ to CHF exchange rate is assumed to be 1:1
+        
+#CAES storage             
+  caes_storage:
+    essentials: 
+      parent: storage_electricity
+      name: 'Compressed air energy storage (CAES)' 
+      color: '#F6E3CE' 
+    constraints: 
+      lifetime: 40 #{Bouman et al., 2013}
+      storage_cap_max: inf 
+      energy_cap_max: inf
+      charge_rate: 1
+      energy_eff: 0.79 #{Shoenung, 2001}, range: 0.7-0.79
+    costs:
+      monetary:
+        interest_rate: 0.025 
+        storage_cap: 2 #CHF/kWh, {Taylor et al., 2012}, range: 2-120 CHF/kWh; this amount varies according to different available air caverns, furhtermore the large_scale CAES is taken here as reference (small-scale would cost more), the US$ to CHF exchange rate is assumed to be 1:1 
+        om_annual: 19 #CHF/kW/y, {Paul, 2009}, range: 19-25 $/kW/y, the US$ to CHF exchange rate is assumed to be 1:1 
+
+#Hydrogen storage             
+  hydrogen_storage:
+    essentials: 
+      parent: storage 
+      carrier: hydrogen
+      name: 'Hydrogen storage' 
+      color: '#F6E3CE' 
+    constraints: 
+      lifetime: 20 #{Chen et al., 2009} {Smith, 2000}, range: 5-20+
+      storage_cap_max: inf 
+      energy_cap_max: inf
+      charge_rate: 1
+      energy_eff: 1
+    costs:
+      monetary:
+        interest_rate: 0.025 
+        storage_cap: 2 #CHF/kWh, {Kaldellis & Zafirakis, 2007}, range 2-15 CHF/kWh, the € to CHF exchange rate is assumed to be 1:1
+        om_annual: 1.5 #CHF/kW/y, assumption range: 1.5-8.7 $/kW/y, the US$ to CHF exchange rate is assumed to be 1:1, assumption: 500-3000$/kW are the power capital costs based on {Shoenung, 2001}{Mekhilef et al., 2012}, the share of the operation and maintenacne costs is approximately 5.8% based on {James et al., 2016}, therefore with implementation of the lifetime: (500/20)*0.058=1.5 $/kw/y
+  
+#Hydropower pumped storage plant
+  hydro_pumped_storage:
+    essentials:
+      color: '#DC5CE5'
+      name: 'Hydropower pumped storage plant'
+      carrier: electricity
+      parent: storage
+    constraints:
+      energy_eff: 0.85  #{Koohi-Kamali et al., 2013}, range: 70-85
+      lifetime: 40 #{Chen et al., 2009}, range: 40-60
+      energy_cap_max: inf
+      storage_cap_max: 370000 #kWh, {Friedl, 2018}, pumped storage maximum lake volume in Switzerland
+      charge_rate: 1 
+    costs:
+      monetary:
+        interest_rate: 0.025
+        energy_cap: 5 #CHF/kWh, {Chen et al., 2009}; range: 5-100 CHF/kWh, the US$ to CHF exchange rate is assumed to be 1:1 
+        om_annual: 3 #CHF/kW/y, {Paul, 2009}, the US$ to CHF exchange rate is assumed to be 1:1 

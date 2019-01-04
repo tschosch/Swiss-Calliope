@@ -1,0 +1,125 @@
+#the transmission capacities of all primary energy carriers is defined in this file
+#in this file costs and additional efficiencies of the transmission of the carriers could be defined
+
+techs: 
+  electricity_transmission:  
+    essentials:
+      parent: transmission
+      carrier: electricity
+      name: 'Power transmission'
+      color: '#6783E3'
+    constraints:
+      energy_cap_max: inf
+      energy_eff: 0.98 #{Index mundi, 2014}, an energy efficiency for the transmission of electricity of 98% is assumed to accout for transmission losses and distribution losses. Assumption: According to the international energy agency staticists 2014, the electricity power transmission and distribution loss in Switzerland is approximately 6.7%, however, the countries with the fewest transmission and distribution losses have losses about 2%, therefore, 2% losses is assumed, as in the future, the transmission efficiency in Switzerland increases. Depending on the source, 2% is high, however, it makes also the transmission of electrcitiy less attractive, what is needed as the public acceptance of network extensions is limited. 
+    costs:
+      monetary:
+        om_annual: 0
+
+  naturalgas_transmission:  
+    essentials: 
+      parent: transmission 
+      carrier: naturalgas 
+      name: 'Natural gas transmission' 
+      color: '#6783E3' 
+    constraints: 
+      energy_cap_max: inf
+    costs:
+      monetary:
+        om_prod: 0
+
+  liquidfueloil_transmission:  
+    essentials: 
+      parent: transmission 
+      carrier: liquidfueloil 
+      name: 'Liquid fuel oil transmission' 
+      color: '#6783E3' 
+    constraints: 
+      energy_cap_max: inf
+    costs:
+      monetary:
+        om_prod: 0
+    
+  wood_transmission:  
+    essentials: 
+      parent: transmission 
+      carrier: wood 
+      name: 'Wood transmission' 
+      color: '#6783E3' 
+    constraints: 
+      energy_cap_max: inf
+    costs:
+      monetary:
+        om_prod: 0
+  
+  diesel_transmission:  
+    essentials: 
+      parent: transmission 
+      carrier: diesel 
+      name: 'diesel transmission' 
+      color: '#6783E3' 
+    constraints: 
+      energy_cap_max: inf
+    costs:
+      monetary:
+        om_prod: 0
+  
+  gasoline_transmission:  
+    essentials: 
+      parent: transmission 
+      carrier: gasoline 
+      name: 'gasoline transmission' 
+      color: '#6783E3' 
+    constraints: 
+      energy_cap_max: inf
+    costs:
+      monetary:
+        om_prod: 0
+
+  biowaste_transmission:  
+    essentials: 
+      parent: transmission 
+      carrier: biowaste
+      name: 'biowaste transmission' 
+      color: '#6783E3' 
+    constraints: 
+      energy_cap_max: inf
+    costs:
+      monetary:
+        om_prod: 0    
+
+  waste_transmission:  
+    essentials: 
+      parent: transmission 
+      carrier: waste
+      name: 'waste transmission' 
+      color: '#6783E3' 
+    constraints: 
+      energy_cap_max: inf
+    costs:
+      monetary:
+        om_prod: 0    
+  
+  coal_transmission:  
+    essentials: 
+      parent: transmission 
+      carrier: coal 
+      name: 'coal transmission' 
+      color: '#6783E3' 
+    constraints: 
+      energy_cap_max: inf
+    costs:
+      monetary:
+        om_prod: 0  
+
+  hydrogen_transmission:  
+    essentials: 
+      parent: transmission 
+      carrier: hydrogen 
+      name: 'hydrogen transmission' 
+      color: '#6783E3' 
+    constraints: 
+      energy_cap_max: inf
+    costs:
+      monetary:
+        om_prod: 0
+  

@@ -1,0 +1,14 @@
+techs: 
+  supply_liquidfueloil:
+    essentials: 
+      parent: supply 
+      carrier_out: liquidfueloil 
+      name: 'Liquid fuel oil import' 
+      color: '#BDBDBD' 
+    constraints:
+      energy_cap_max: inf 
+    costs:
+      monetary:
+        om_con: 0.06059 #CHF/kWhfuel, {Moret, 2017} {SFOS, 2016a} {European Commission, 2009} {Beuret, 2016}
+      emissions:
+        om_prod: 0.3115 #kgCO2eq/kWhfuel, {Moret, 2017}

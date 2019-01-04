@@ -1,0 +1,14 @@
+techs:  
+  supply_nuclear:
+    essentials:
+      parent: supply
+      carrier_out: nuclear
+      name: 'Uranium import'
+      color: '#82FA58'
+    constraints:
+      energy_cap_max: inf
+    costs:
+      monetary:
+        om_con: 0.0041 #CHF/kWhfuel, {Prognos AG, 2011}
+      emissions:
+        om_prod: 0.0039 #kgCO2/kWhfuel, {Weidema et al., 2013}

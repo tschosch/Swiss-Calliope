@@ -1,0 +1,197 @@
+#the installed transmission line interconnection between the model regions, the transmission capacity is assumed to have no limits. The inteconnection is based on whether the model regions have a common border or not.
+links:
+    AG,BL_BS:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    AG,SO:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    AG,BE_JU:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    AG,LU:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    AG,SZ_ZG:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    AG,SH_ZH:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    AI_AR,SG:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf                   
+    BL_BS,BE_JU:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    BL_BS,SO:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    BE_JU,NE:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    BE_JU,GE_VD:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    BE_JU,FR:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    BE_JU,VS:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    BE_JU,NW_OW_UR:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf  
+    BE_JU,LU:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    BE_JU,SO:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    FR,NE:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    FR,GE_VD:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    GE_VD,VS:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    GE_VD,NE:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    GL,SG:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    GL,GR:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    GL,NW_OW_UR:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    GL,SZ_ZG:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    GR,SG:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    GR,NW_OW_UR:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    GR,TI:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    LU,NW_OW_UR:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    LU,SZ_ZG:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    NE,FR:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    NW_OW_UR,SZ_ZG:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    NW_OW_UR,TI:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    NW_OW_UR,VS:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    SG,TG:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    SG,SH_ZH:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    SG,SZ_ZG:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    SH_ZH,TG:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    SH_ZH,SZ_ZG:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf
+    TI,VS:
+        techs:
+            electricity_transmission:
+                constraints:
+                    energy_cap_max: inf

@@ -1,0 +1,414 @@
+scenarios:
+  base: 'group_share_htheat,group_share_ltheat,group_share_passenger_mobility,group_share_freight_mobility,nuclear_electricity_scenario'
+  baseline_2015: 'year2015,group_share_electricity_2015,constraints_baseline_2015,group_share_freight_mobility,group_share_passenger_mobility_2015,group_share_htheat_2015,group_share_ltheat_2015,group_share_freight_mobility_2015,constraints_combined_heat_power_biowaste_energy_2015'
+  landscape_preservation_2035: 'year2035,group_share_htheat,group_share_ltheat,group_share_passenger_mobility_electrification35,group_share_freight_mobility,nuclear_electricity_scenario,constraints_landscape_preservation'
+  landscape_preservation_2050: 'year2050,group_share_htheat,group_share_ltheat,group_share_passenger_mobility_electrification50,group_share_freight_mobility,nuclear_electricity_scenario,constraints_landscape_preservation'
+  electrification_switzerland_2035: 'year2035,group_share_htheat,group_share_ltheat,group_share_freight_mobility,nuclear_electricity_scenario,constraints_electrification,group_share_electricity_electrification,group_share_passenger_mobility_electrification35'
+  electrification_switzerland_2050: 'year2050,group_share_htheat,group_share_ltheat,group_share_freight_mobility,nuclear_electricity_scenario,constraints_electrification,group_share_electricity_electrification,group_share_passenger_mobility_electrification50'
+  renewables_exploitation_2035: 'year2035,group_share_htheat,group_share_ltheat,group_share_freight_mobility,nuclear_electricity_scenario,constraints_renewables,group_share_electricity_renewables,group_share_passenger_mobility_electrification35'
+  renewables_exploitation_2050: 'year2050,group_share_htheat,group_share_ltheat,group_share_freight_mobility,nuclear_electricity_scenario,constraints_renewables,group_share_electricity_renewables,group_share_passenger_mobility_electrification50'
+  economic_scenario_2035: 'year2035,group_share_htheat,group_share_ltheat,group_share_freight_mobility,nuclear_electricity_scenario,economic_constraints,group_share_passenger_mobility_electrification35'
+  economic_scenario_2050: 'year2050,group_share_htheat,group_share_ltheat,group_share_freight_mobility,nuclear_electricity_scenario,economic_constraints,group_share_passenger_mobility_electrification50'
+  electrification_switzerland_caes_2035: 'year2035,constraints_caes_scenario,group_share_htheat,group_share_ltheat,group_share_freight_mobility,nuclear_electricity_scenario,constraints_electrification,group_share_electricity_electrification,group_share_passenger_mobility_electrification35'
+  electrification_switzerland_caes_2050: 'year2050,constraints_caes_scenario,group_share_htheat,group_share_ltheat,group_share_freight_mobility,nuclear_electricity_scenario,constraints_electrification,group_share_electricity_electrification,group_share_passenger_mobility_electrification50'
+  electrification_switzerland_hydrogen_2035: 'year2035,constraints_hydrogen_storage_scenario,group_share_htheat,group_share_ltheat,group_share_freight_mobility,nuclear_electricity_scenario,constraints_electrification,group_share_electricity_electrification,group_share_passenger_mobility_electrification35'
+  electrification_switzerland_hydrogen_2050: 'year2050,constraints_hydrogen_storage_scenario,group_share_htheat,group_share_ltheat,group_share_freight_mobility,nuclear_electricity_scenario,constraints_electrification,group_share_electricity_electrification,group_share_passenger_mobility_electrification50'
+  electrification_switzerland_heat_2035: 'year2035,group_share_htheat,constraints_heat_storage_scenario,group_share_ltheat,group_share_freight_mobility,nuclear_electricity_scenario,constraints_electrification,group_share_electricity_electrification,group_share_passenger_mobility_electrification35'
+  electrification_switzerland_heat_2050: 'year2050,group_share_htheat,constraints_heat_storage_scenario,group_share_ltheat,group_share_freight_mobility,nuclear_electricity_scenario,constraints_electrification,group_share_electricity_electrification,group_share_passenger_mobility_electrification50'
+  electrification_switzerland_hydro_2035: 'year2035,constraints_hydropower_storage_scenario,group_share_htheat,group_share_ltheat,group_share_freight_mobility,nuclear_electricity_scenario,constraints_electrification,group_share_electricity_electrification,group_share_passenger_mobility_electrification35'
+  electrification_switzerland_hydro_2050: 'year2050,constraints_hydropower_storage_scenario,group_share_htheat,group_share_ltheat,group_share_freight_mobility,nuclear_electricity_scenario,constraints_electrification,group_share_electricity_electrification,group_share_passenger_mobility_electrification50'
+
+
+overrides:
+
+##########################################################################################################################
+  year2015:
+    model.subset_time: ['2015-01-01', '2015-12-31']
+  
+  year2035:
+    model.subset_time: ['2035-01-01', '2035-12-31']
+
+  year2050:
+    model.subset_time: ['2050-01-01', '2050-12-31']
+
+#standard group_share_constraints for every run
+  group_share_htheat: #all values {Moret, 2017} maximum installed size of the technologies #the values are based on district heating technologies, when no data about district heating is provided, the data is from decentralized heating and cogeneration technologies.
+    model: 
+      group_share:
+        combined_heat_power_naturalgas.carrier_prod_max.htheat: 0.5
+        combined_heat_power_wood.carrier_prod_max.htheat: 1
+        combined_heat_power_biowaste.carrier_prod_max.htheat: 0.5
+        combined_heat_power_liquidfueloil.carrier_prod_max.htheat: 0.4
+        gas_boiler.carrier_prod_max.htheat: 0.6
+        wood_boiler.carrier_prod_max.htheat: 1
+        lfo_boiler.carrier_prod_max.htheat: 0.5
+        coal_boiler.carrier_prod_max.htheat: 0.5
+        biowaste_boiler.carrier_prod_max.htheat: 1
+        electric_heating.carrier_prod_max.htheat: 0.275 #higher than the maximum installed size of 0.2 by {Moret, 2017}, otherwise it would contradict the scenario baseline_2015, because there electric heating is 0.275 of all htheat
+  
+  group_share_ltheat: #all values {Moret, 2017} maximum installed size of the technologies #the values are based on district heating technologies, when no data about district heating is provided, the data is from decentralized heating and cogeneration technologies.
+    model: 
+      group_share:
+        combined_heat_power_naturalgas.carrier_prod_max.ltheat: 0.5
+        combined_heat_power_wood.carrier_prod_max.ltheat: 1
+        combined_heat_power_biowaste.carrier_prod_max.ltheat: 0.5
+        combined_heat_power_liquidfueloil.carrier_prod_max.ltheat: 0.4
+        gas_boiler.carrier_prod_max.ltheat: 0.6
+        wood_boiler.carrier_prod_max.ltheat: 1
+        lfo_boiler.carrier_prod_max.ltheat: 0.5
+        coal_boiler.carrier_prod_max.ltheat: 0.5
+        biowaste_boiler.carrier_prod_max.ltheat: 1
+        electric_heating.carrier_prod_max.ltheat: 0.2 
+        heat_pump.carrier_prod_max.ltheat: 0.5
+        solar_thermal.carrier_prod_max.ltheat: 0.4
+        centralized_geothermal_heat.carrier_prod_max.ltheat: 0.05 #less than 5% of the energy demand in 2017 was from district heating {SFOS,2017} and centralized geothermal heat is only district heating
+        
+  group_share_passenger_mobility: #all values {Moret, 2017}
+    model:
+      group_share:  
+  #private transport #73% of the Passenger mobility is private mobility {SFOS, 2015b} in 2015, I assume this to be the same in 2035 and 2050
+        gasoline_car.carrier_prod_max.pkm_private: 1
+        diesel_car.carrier_prod_max.pkm_private: 1
+        naturalgas_car.carrier_prod_max.pkm_private: 0.5
+        battery_electric_vehicle.carrier_prod_max.pkm_private: 0.3 
+        hybrid_electric_vehicle.carrier_prod_max.pkm_private: 0.3
+        plugin_hybrid_electric_vehicle.carrier_prod_max.pkm_private: 0.3
+        fuel_cell_car.carrier_prod_max.pkm_private: 0.2
+  #public transport #27% of the Passenger mobility is public mobility {SFOS, 2015b} in 2015, I assume this to be the same in 2035 and 2050
+        public_tram_trolley.carrier_prod_max.pkm_public: 0.3
+        diesel_bus.carrier_prod_max.pkm_public: 0.3
+        naturalgas_bus.carrier_prod_max.pkm_public: 0.3
+        hybrid_bus.carrier_prod_max.pkm_public: 0.3
+        fuel_cell_bus.carrier_prod_max.pkm_public: 0.2
+        public_train.carrier_prod_max.pkm_public: 0.8
+  
+  #freight mobility #the group shares of freight tkm between freight truck (diesel and hydrogen) and freight train are assumed the same
+  group_share_freight_mobility:
+    model:
+      group_share:    
+        freight_train.carrier_prod_equals.tkm: 0.5
+  
+  nuclear_electricity_scenario: #the nuclear power plants are switched off from 2035 on, therefore for the scenarios no nulcear power plants are available
+    locations:
+      AG,BE_JU,SO:
+        techs:
+          nuclear_power.constraints.energy_cap_max: 0
+
+##########################################################################################################################
+
+#scenario group_share constraints: "BASELINE SCENARIO 2015"
+  #in this scenario the energy mix in 2015 is modelled as precise as possible
+
+  constraints_baseline_2015:
+    locations:
+      AG,AI_AR,BE_JU,BL_BS,FR,GE_VD,GL,GR,LU,NE,NW_OW_UR,SG,SH_ZH,SO,SZ_ZG,TG,TI,VS:
+        techs: 
+          centralized_geothermal_electricity.constraints.energy_cap_equals: 0
+          combined_cycle_plant.constraints.energy_cap_equals: 0
+          battery_storage.constraints.energy_cap_equals: 0
+          caes_storage.constraints.energy_cap_equals: 0
+          hydrogen_storage.constraints.energy_cap_equals: 0
+          fuel_cell.constraints.energy_cap_equals: 0
+          naturalgas_hydrogen.constraints.energy_cap_equals: 0
+          electricity_hydrogen.constraints.energy_cap_equals: 0
+          biomass_to_hydrogen.constraints.energy_cap_equals: 0
+          biomass_to_diesel.constraints.energy_cap_equals: 0
+          
+  constraints_combined_heat_power_biowaste_energy_2015:
+    locations:
+      AG.techs.combined_heat_power_biowaste.energy_cap_equals: 6361  #kW
+      AI_AR.techs.combined_heat_power_biowaste.energy_cap_equals: 824  #kW
+      BE_JU.techs.combined_heat_power_biowaste.energy_cap_equals: 44793.3  #kW
+      BL_BS.techs.combined_heat_power_biowaste.energy_cap_equals: 1365  #kW 
+      FR.techs.combined_heat_power_biowaste.energy_cap_equals: 4429.3  #kW
+      GE_VD.techs.combined_heat_power_biowaste.energy_cap_equals: 14758  #kW
+      GL.techs.combined_heat_power_biowaste.energy_cap_equals: 0  #kW
+      GR.techs.combined_heat_power_biowaste.energy_cap_equals: 21798  #kW
+      LU.techs.combined_heat_power_biowaste.energy_cap_equals: 10045  #kW
+      NE.techs.combined_heat_power_biowaste.energy_cap_equals: 610.1  #kW
+      NW_OW_UR.techs.combined_heat_power_biowaste.energy_cap_equals: 784  #kW
+      SG.techs.combined_heat_power_biowaste.energy_cap_equals: 9005  #kW
+      SH_ZH.techs.combined_heat_power_biowaste.energy_cap_equals: 17108  #kW
+      SO.techs.combined_heat_power_biowaste.energy_cap_equals: 1564  #kW
+      SZ_ZG.techs.combined_heat_power_biowaste.energy_cap_equals: 4103  #kW
+      TG.techs.combined_heat_power_biowaste.energy_cap_equals: 2625  #kW
+      TI.techs.combined_heat_power_biowaste.energy_cap_equals: 1037  #kW
+      VS.techs.combined_heat_power_biowaste.energy_cap_equals: 816  #kW
+
+  group_share_electricity_2015:
+    model:
+      group_share: 
+        nuclear_power.carrier_prod_min.electricity: 0.335 #{SFOE, 2015}, Swiss electricity statistics 2015
+        hydropower_plant.carrier_prod_min.electricity: 0.35
+        hydro_runofriver.carrier_prod_min.electricity: 0.2
+  
+  #passenger mobility #group share is based on {Moret, 2017}, Moret calculated the shares based on the data of the Swiss energy system in 2011, it is assumed that the shares stay constant for 2015
+  group_share_passenger_mobility_2015:
+    model:
+      group_share: 
+        #73% of the Passenger mobility is private mobility {SFOS, 2015b} in 2015 
+        gasoline_car.carrier_prod_min.pkm_private: 0.75
+        diesel_car.carrier_prod_min.pkm_private: 0.22
+        hybrid_electric_vehicle.carrier_prod_min.pkm_private: 0.015
+        #27% of the Passenger mobility is public mobility {SFOS, 2015b} in 2015 (the total share of private mobility 65% and pubilc mobility 24% assumed to be 100% based on total pkm demand)
+        public_tram_trolley.carrier_prod_min.pkm_public: 0.12
+        diesel_bus.carrier_prod_min.pkm_public: 0.49
+        naturalgas_bus.carrier_prod_min.pkm_public: 0.03
+        public_train.carrier_prod_min.pkm_public: 0.3
+
+  #high temperature heat (htheat) #group share is based on {Moret, 2017}, Moret calculated the shares based on the data of the Swiss energy system in 2011, it is assumed that the shares stay constant for 2015  
+  group_share_htheat_2015:
+    model: 
+      group_share:
+        combined_heat_power_naturalgas.carrier_prod_min.htheat: 0.02
+        combined_heat_power_wood.carrier_prod_min.htheat: 0.008
+        combined_heat_power_biowaste.carrier_prod_min.htheat: 0.01
+        gas_boiler.carrier_prod_min.htheat: 0.2
+        lfo_boiler.carrier_prod_min.htheat: 0.2
+        coal_boiler.carrier_prod_min.htheat: 0.05
+        electric_heating.carrier_prod_min.htheat: 0.2
+        wood_boiler.carrier_prod_min.htheat: 0.07
+        biowaste_boiler.carrier_prod_min.htheat: 0.05
+  
+  #low temperature heat (ltheat) #group share is based on {Moret, 2017}, Moret calculated the shares based on the data of the Swiss energy system in 2011, it is assumed that the shares stay constant for 2015  
+  #the ltheat is assumed to be all decentralized ltheat, therefore the shares are from the Swiss decentralized low temperature heating system, the destrict heating network is neglected
+  group_share_ltheat_2015:
+    model:
+      group_share:
+        heat_pump.carrier_prod_min.ltheat: 0.06
+        gas_boiler.carrier_prod_min.ltheat: 0.2
+        wood_boiler.carrier_prod_min.ltheat: 0.08
+        lfo_boiler.carrier_prod_min.ltheat: 0.4
+        electric_heating.carrier_prod_min.ltheat: 0.09
+        solar_thermal.carrier_prod_min.ltheat: 0.005
+        combined_heat_power_liquidfueloil.carrier_prod_min.ltheat: 0.001
+        combined_heat_power_naturalgas.carrier_prod_min.ltheat: 0.005
+        centralized_geothermal_heat.carrier_prod_max.ltheat: 0
+  
+  group_share_freight_mobility_2015:
+    model:
+      group_share:
+        freight_diesel.carrier_prod_equals.tkm: 0.5
+
+##########################################################################################################################
+
+#scenario constraints: "ECONOMIC SCENARIO"
+  #in this scenario the most economic energy sources are taken, what comes with a lot of interconnection with abroad
+  economic_constraints:
+    locations:
+      #the transmission lines between abroad and Switzerland are assumed to have an infinite capacity
+      AG.techs.export_electricity_conversion.constraints.energy_cap_max: inf
+      BL_BS.techs.export_electricity_conversion.constraints.energy_cap_max: inf
+      BE_JU.techs.export_electricity_conversion.constraints.energy_cap_max: inf
+      GE_VD.techs.export_electricity_conversion.constraints.energy_cap_max: inf
+      GR.techs.export_electricity_conversion.constraints.energy_cap_max: inf
+      SG.techs.export_electricity_conversion.constraints.energy_cap_max: inf
+      TI.techs.export_electricity_conversion.constraints.energy_cap_max: inf
+      VS.techs.export_electricity_conversion.constraints.energy_cap_max: inf
+      AG.techs.import_electricity.constraints.energy_cap_max: inf
+      BL_BS.techs.import_electricity.constraints.energy_cap_max: inf
+      BE_JU.techs.import_electricity.constraints.energy_cap_max: inf
+      GE_VD.techs.import_electricity.constraints.energy_cap_max: inf
+      GR.techs.import_electricity.constraints.energy_cap_max: inf
+      SG.techs.import_electricity.constraints.energy_cap_max: inf
+      TI.techs.import_electricity.constraints.energy_cap_max: inf
+      VS.techs.import_electricity.constraints.energy_cap_max: inf 
+      #under the assumption, the imported electricity price decreased by 75%
+      AG.techs.import_electricity.costs.monetary.om_prod: 0.02265
+      BL_BS.techs.import_electricity.costs.monetary.om_prod: 0.02265
+      BE_JU.techs.import_electricity.costs.monetary.om_prod: 0.02265
+      GE_VD.techs.import_electricity.costs.monetary.om_prod: 0.02265
+      GR.techs.import_electricity.costs.monetary.om_prod: 0.02265
+      SG.techs.import_electricity.costs.monetary.om_prod: 0.02265
+      TI.techs.import_electricity.costs.monetary.om_prod: 0.02265
+      VS.techs.import_electricity.costs.monetary.om_prod: 0.02265
+
+##########################################################################################################################
+
+#scenario constraints: "LANDSCAPE PRESERVATION SCENARIO"
+  #in this scenario the decentralized landscape impacting technologies (combined_heat_power_biowaste,photovoltaics) are substituted by centralized energy production technologies. In addition, the transmission lines between the cantons are deconstructed and also the export and import transmission lines.
+  constraints_landscape_preservation: 
+    locations:
+      AG,AI_AR,BE_JU,BL_BS,FR,GE_VD,GL,GR,LU,NE,NW_OW_UR,SG,SH_ZH,SO,SZ_ZG,TG,TI,VS:
+        techs: 
+          photovoltaic.constraints.energy_cap_max: 0 
+          wind.constraints.energy_cap_max: 0 
+          import_electricity.constraints.energy_cap_max: 0
+          export_electricity_conversion.constraints.energy_cap_max: 0
+    links:
+      AG,BL_BS.techs.electricity_transmission.constraints.energy_cap_max: 0
+      AG,SO.techs.electricity_transmission.constraints.energy_cap_max: 0
+      AG,BE_JU.techs.electricity_transmission.constraints.energy_cap_max: 0
+      AG,LU.techs.electricity_transmission.constraints.energy_cap_max: 0
+      AG,SZ_ZG.techs.electricity_transmission.constraints.energy_cap_max: 0
+      AG,SH_ZH.techs.electricity_transmission.constraints.energy_cap_max: 0
+      AI_AR,SG.techs.electricity_transmission.constraints.energy_cap_max: 0
+      BL_BS,BE_JU.techs.electricity_transmission.constraints.energy_cap_max: 0
+      BL_BS,SO.techs.electricity_transmission.constraints.energy_cap_max: 0
+      BE_JU,NE.techs.electricity_transmission.constraints.energy_cap_max: 0
+      BE_JU,GE_VD.techs.electricity_transmission.constraints.energy_cap_max: 0
+      BE_JU,FR.techs.electricity_transmission.constraints.energy_cap_max: 0
+      BE_JU,VS.techs.electricity_transmission.constraints.energy_cap_max: 0
+      BE_JU,NW_OW_UR.techs.electricity_transmission.constraints.energy_cap_max: 0
+      BE_JU,LU.techs.electricity_transmission.constraints.energy_cap_max: 0
+      BE_JU,SO.techs.electricity_transmission.constraints.energy_cap_max: 0
+      FR,NE.techs.electricity_transmission.constraints.energy_cap_max: 0
+      FR,GE_VD.techs.electricity_transmission.constraints.energy_cap_max: 0
+      GE_VD,VS.techs.electricity_transmission.constraints.energy_cap_max: 0
+      GE_VD,NE.techs.electricity_transmission.constraints.energy_cap_max: 0
+      GL,SG.techs.electricity_transmission.constraints.energy_cap_max: 0
+      GL,GR.techs.electricity_transmission.constraints.energy_cap_max: 0
+      GL,NW_OW_UR.techs.electricity_transmission.constraints.energy_cap_max: 0
+      GL,SZ_ZG.techs.electricity_transmission.constraints.energy_cap_max: 0
+      GR,SG.techs.electricity_transmission.constraints.energy_cap_max: 0
+      GR,NW_OW_UR.techs.electricity_transmission.constraints.energy_cap_max: 0
+      GR,TI.techs.electricity_transmission.constraints.energy_cap_max: 0
+      LU,NW_OW_UR.techs.electricity_transmission.constraints.energy_cap_max: 0
+      LU,SZ_ZG.techs.electricity_transmission.constraints.energy_cap_max: 0
+      NE,FR.techs.electricity_transmission.constraints.energy_cap_max: 0
+      NW_OW_UR,SZ_ZG.techs.electricity_transmission.constraints.energy_cap_max: 0
+      NW_OW_UR,TI.techs.electricity_transmission.constraints.energy_cap_max: 0
+      NW_OW_UR,VS.techs.electricity_transmission.constraints.energy_cap_max: 0
+      SG,TG.techs.electricity_transmission.constraints.energy_cap_max: 0
+      SG,SH_ZH.techs.electricity_transmission.constraints.energy_cap_max: 0
+      SG,SZ_ZG.techs.electricity_transmission.constraints.energy_cap_max: 0
+      SH_ZH,TG.techs.electricity_transmission.constraints.energy_cap_max: 0
+      SH_ZH,SZ_ZG.techs.electricity_transmission.constraints.energy_cap_max: 0
+      TI,VS.techs.electricity_transmission.constraints.energy_cap_max: 0
+
+##########################################################################################################################
+
+#scenario constraints: "RENEWABLES EXPLOITATION SCENARIO"
+  #in this scenario only renewable energy sources are used for energy production, also combined_heat_power_biowaste is implemented
+  constraints_renewables:
+    locations:
+      AG,AI_AR,BE_JU,BL_BS,FR,GE_VD,GL,GR,LU,NE,NW_OW_UR,SG,SH_ZH,SO,SZ_ZG,TG,TI,VS:
+        techs:
+          supply_coal.constraints.energy_cap_equals: 0
+          supply_diesel.constraints.energy_cap_equals: 0
+          supply_gasoline.constraints.energy_cap_equals: 0
+          supply_liquidfueloil.constraints.energy_cap_equals: 0
+          supply_naturalgas.constraints.energy_cap_equals: 0
+  
+  group_share_electricity_renewables:
+    model:
+      group_share:
+        photovoltaic.carrier_prod_min.electricity: 0.1
+        wind.carrier_prod_min.electricity: 0.2
+
+
+##########################################################################################################################
+
+#scenario constraints: "ELECTRIFICATION SCENARIO SWITZERLAND"
+  #in this scenario the renwables are exploited, furthermore no imports of fossil fuels are allowed, however the combined_heat_power_biowaste exploitation is just a limited option because of the lack of acceptance in Switzerland
+  constraints_electrification:
+    locations:
+      AG,AI_AR,BE_JU,BL_BS,FR,GE_VD,GL,GR,LU,NE,NW_OW_UR,SG,SH_ZH,SO,SZ_ZG,TG,TI,VS:
+        techs:
+          supply_coal.constraints.energy_cap_equals: 0
+          supply_diesel.constraints.energy_cap_equals: 0
+          supply_gasoline.constraints.energy_cap_equals: 0
+          supply_liquidfueloil.constraints.energy_cap_equals: 0
+          supply_naturalgas.constraints.energy_cap_equals: 0
+          demand_electricity.constraints.resource: file=demand_electricity_DSM.csv
+
+
+  group_share_electricity_electrification:
+    model:
+      group_share:
+        photovoltaic.carrier_prod_min.electricity: 0.3
+     
+  group_share_passenger_mobility_electrification35: #all values {Moret, 2017}
+    model:
+      group_share:  
+  #private transport #73% of the Passenger mobility is private mobility {SFOS, 2015b} in 2015, I assume this to be the same in 2035 and 2050
+        gasoline_car.carrier_prod_max.pkm_private: 1
+        diesel_car.carrier_prod_max.pkm_private: 1
+        naturalgas_car.carrier_prod_max.pkm_private: 0.5
+        battery_electric_vehicle.carrier_prod_max.pkm_private: 0.7 #according to {Moret, 2017} the maximum share is 0.3, here I assume 0.7, otherwise the demand is unfeasible 
+        hybrid_electric_vehicle.carrier_prod_max.pkm_private: 0.3
+        plugin_hybrid_electric_vehicle.carrier_prod_max.pkm_private: 0.3
+        fuel_cell_car.carrier_prod_max.pkm_private: 0.2
+  #public transport #27% of the Passenger mobility is public mobility {SFOS, 2015b} in 2015, I assume this to be the same in 2035 and 2050
+        public_tram_trolley.carrier_prod_max.pkm_public: 0.3
+        diesel_bus.carrier_prod_max.pkm_public: 0.3
+        naturalgas_bus.carrier_prod_max.pkm_public: 0.3
+        hybrid_bus.carrier_prod_max.pkm_public: 0.3
+        fuel_cell_bus.carrier_prod_max.pkm_public: 0.2
+        public_train.carrier_prod_max.pkm_public: 0.8
+
+  group_share_passenger_mobility_electrification50: #all values {Moret, 2017}
+    model:
+      group_share:  
+  #private transport #73% of the Passenger mobility is private mobility {SFOS, 2015b} in 2015, I assume this to be the same in 2035 and 2050
+        gasoline_car.carrier_prod_max.pkm_private: 1
+        diesel_car.carrier_prod_max.pkm_private: 1
+        naturalgas_car.carrier_prod_max.pkm_private: 0.5
+        battery_electric_vehicle.carrier_prod_max.pkm_private: 1 #according to {Moret, 2017} the maximum share is 0.3, here I assume 0.6, otherwise the demand is unfeasible 
+        hybrid_electric_vehicle.carrier_prod_max.pkm_private: 0.3
+        plugin_hybrid_electric_vehicle.carrier_prod_max.pkm_private: 0.3
+        fuel_cell_car.carrier_prod_max.pkm_private: 0.2
+  #public transport #27% of the Passenger mobility is public mobility {SFOS, 2015b} in 2015, I assume this to be the same in 2035 and 2050
+        public_tram_trolley.carrier_prod_max.pkm_public: 0.3
+        diesel_bus.carrier_prod_max.pkm_public: 0.3
+        naturalgas_bus.carrier_prod_max.pkm_public: 0.3
+        hybrid_bus.carrier_prod_max.pkm_public: 0.3
+        fuel_cell_bus.carrier_prod_max.pkm_public: 0.2
+        public_train.carrier_prod_max.pkm_public: 0.8
+
+
+
+################################################## ENERGY STORAGE SCENARIOS########################################################################
+
+#Hydrogen scenario
+  constraints_hydrogen_storage_scenario:
+    locations:
+      AG,AI_AR,BE_JU,BL_BS,FR,GE_VD,GL,GR,LU,NE,NW_OW_UR,SG,SH_ZH,SO,SZ_ZG,TG,TI,VS:
+        techs:
+        #hydrogen technologies costs decrease by 50%
+          electricity_hydrogen.costs.monetary.energy_cap: 164.5
+          biomass_to_hydrogen.costs.monetary.energy_cap: 1348.5
+          fuel_cell.costs.monetary.energy_cap: 3867
+        #the other storage technoloy costs increase, except for battery storage, because it is anyway too expensive  
+          ltheat_storage.costs.monetary.storage_cap: 50
+          htheat_storage.costs.monetary.storage_cap: 60
+          caes_storage.costs.monetary.storage_cap: 120
+
+
+#CAES scenario
+  constraints_caes_scenario:
+    locations:
+      AG,AI_AR,BE_JU,BL_BS,FR,GE_VD,GL,GR,LU,NE,NW_OW_UR,SG,SH_ZH,SO,SZ_ZG,TG,TI,VS:
+        techs:
+        #the other technology costs increase, except for battery storage, because it is anyway too expensive
+          hydrogen_storage.costs.monetary.storage_cap: 15
+          ltheat_storage.costs.monetary.storage_cap: 50
+          htheat_storage.costs.monetary.storage_cap: 60
+
+
+#Heat Scenario
+  constraints_heat_storage_scenario:
+    locations:
+      AG,AI_AR,BE_JU,BL_BS,FR,GE_VD,GL,GR,LU,NE,NW_OW_UR,SG,SH_ZH,SO,SZ_ZG,TG,TI,VS:
+        techs:
+        #the other storage technoloy costs increase, except for battery storage, because it is anyway too expensive  
+          caes_storage.costs.monetary.storage_cap: 120
+          hydrogen_storage.costs.monetary.storage_cap: 15
+
+#Hydropower storage scenario 
+  constraints_hydropower_storage_scenario:
+    locations:
+      AG,AI_AR,BE_JU,BL_BS,FR,GE_VD,GL,GR,LU,NE,NW_OW_UR,SG,SH_ZH,SO,SZ_ZG,TG,TI,VS:
+        techs:
+        #the other storage technoloy costs increase, except for battery storage, because it is anyway too expensive  
+          caes_storage.costs.monetary.storage_cap: 120
+          hydrogen_storage.costs.monetary.storage_cap: 15
+          ltheat_storage.costs.monetary.storage_cap: 50
+          htheat_storage.costs.monetary.storage_cap: 60
+
+
+      
+
+      
+        
+        

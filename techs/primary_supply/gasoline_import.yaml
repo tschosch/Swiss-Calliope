@@ -1,0 +1,14 @@
+techs:
+  supply_gasoline:
+    essentials: 
+      parent: supply
+      carrier_out: gasoline 
+      name: 'Gasoline import' 
+      color: '#BDBDBD' 
+    constraints:
+      energy_cap_max: inf 
+    costs:
+      monetary:
+        om_con: 0.08796 #CHF/kWhfuel, {Moret, 2017} {European Commission, 2009} {Beuret, 2016} {SFOS, 2016b}
+      emissions:
+        om_prod: 0.345 #kgCO2eq/kWhfuel, {Moret, 2017}

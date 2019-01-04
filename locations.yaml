@@ -1,0 +1,14 @@
+import:
+    #electricity
+    - locations/electricity/locations_hydro_pumpedstorageplant.yaml
+    - locations/electricity/locations_nuclear.yaml 
+    #- locations/electricity/locations_solar.yaml #this location file has to be switched on when limiting the solar capacity to the installed capacity in the baseline 2015 and the locations_wind_potential.yaml file has to be switched off.
+    - locations/electricity/locations_solar_potential.yaml 
+    #- locations/electricity/locations_wind.yaml #this location file has to be switched on when limiting the solar capacity to the installed capacity in the baseline 2015 and the locations_solar_potential.yaml file has to be switched off.
+    - locations/electricity/locations_wind_potential.yaml
+    - locations/electricity/locations_export_import.yaml
+    #heat&power
+    - locations/heat_power/locations_combined_heat_power_generation.yaml
+    - locations/heat_power/locations_waste_incineration_plant.yaml
+    #transmission
+    - locations/transmission/transmission_grid.yaml

@@ -1,0 +1,77 @@
+locations: #the installed capacity for the export and import of electricity from the neighbouring countries in kW for each model region
+#all based on ENTSO-E (2018) and ENTSO-E grid map (https://www.entsoe.eu/data/map/) for 2020
+#Assumptions and calculation: The Net Transfer Capacity (NTC) values for export and import of electricity between Switzerland and Austria, France, Germany and Italy are retrieved from ENTSO-E (2018a) from the values of the NTC 2020. The NTC 2020 values are on the national level, therefore, they needed to be break down to the cantonal level. The transmission system map of ENTSO_E with the option to show only the cross-border lines is used (ENTSO-E, 2018b) and with this information, the lines are separated to the different model regions. For instance, Italy is connected to Switzerland with eight 220 kV or 380-400 kV lines (no distinction between them): Four to the canton of Ticino (TI) and two connections to Valais (VS) and Grisons (GR). Based on this information the total NTC between Switzerland and Italy, which differentiates between export and import, is separated to the model regions by the number of transmission lines. The transfer capacity is assumed to be the same for 2015, 2035 and 2050 
+  
+  AI_AR,FR,GL,LU,NE,NW_OW_UR,SH_ZH,SO,SZ_ZG,TG: #model regions with no transmission lines with the neighbouring countries
+    techs:
+      export_electricity_conversion:
+        constraints:
+          energy_cap_equals: 0 #in kW
+      import_electricity:
+        constraints:
+          energy_cap_equals: 0 #in kW
+  AG:
+    techs:
+      export_electricity_conversion:
+        constraints:
+          energy_cap_equals: 368000 #in kW 
+      import_electricity:
+        constraints:
+          energy_cap_equals: 216000 #in kW
+  BL_BS:
+    techs:
+      export_electricity_conversion:
+        constraints:
+          energy_cap_equals: 56000 #in kW
+      import_electricity:
+        constraints:
+          energy_cap_equals: 51230.77 #in kW
+  BE_JU:
+    techs:
+      export_electricity_conversion:
+        constraints:
+          energy_cap_equals: 40000 #in kW
+      import_electricity:
+        constraints:
+          energy_cap_equals: 96923.08 #in kW
+  GE_VD:
+    techs:
+      export_electricity_conversion:
+        constraints:
+          energy_cap_equals: 60000 #in kW
+      import_electricity:
+        constraints:
+          energy_cap_equals: 145384.62 #in kW
+  GR:
+    techs:
+      export_electricity_conversion:
+        constraints:
+          energy_cap_equals: 192000 # in kW
+      import_electricity:
+        constraints:
+          energy_cap_equals: 114750 # in kW
+  SG:
+    techs:
+      export_electricity_conversion:
+        constraints:
+          energy_cap_equals: 80000 # in kW
+      import_electricity:
+        constraints:
+          energy_cap_equals: 80000 # in kW
+  TI:
+    techs:
+      export_electricity_conversion:
+        constraints:
+          energy_cap_equals: 212000 #in kW
+      import_electricity:
+        constraints:
+          energy_cap_equals: 95500 #in kW
+  VS:
+    techs:
+      export_electricity_conversion:
+        constraints:
+          energy_cap_equals: 126000 #in kW
+      import_electricity:
+        constraints:
+          energy_cap_equals: 96211.54 #in kW
+          

@@ -1,0 +1,92 @@
+locations: #the installed hydropower storage capacity in kW for each model region
+# all based on {DETEC & SFOE, 2015}, the Swiss hydropower plant statistics 2015
+  AG:
+    techs:
+      hydropower_plant:
+        constraints:
+          energy_cap_equals:  0  #kW    
+  AI_AR:
+    techs:
+      hydropower_plant:
+        constraints:
+          energy_cap_equals:  879  #kW
+  BE_JU:
+    techs:
+      hydropower_plant:
+        constraints:
+          energy_cap_equals:  197472.6  #kW
+  BL_BS:
+    techs:
+      hydropower_plant:
+        constraints:
+          energy_cap_equals:  0  #kW   
+  FR:
+    techs:
+      hydropower_plant:
+        constraints:
+          energy_cap_equals:  44342.47  #kW
+  GE_VD:
+    techs:
+      hydropower_plant:
+        constraints:
+          energy_cap_equals:  4183.79  #kW
+  GL:
+    techs:
+      hydropower_plant:
+        constraints:
+          energy_cap_equals:  59805.94  #kW
+  GR:
+    techs:
+      hydropower_plant:
+        constraints:
+          energy_cap_equals:  605416.67  #kW
+  LU:
+    techs:
+      hydropower_plant:
+        constraints:
+          energy_cap_equals:  0  #kW
+  NE:
+    techs:
+      hydropower_plant:
+        constraints:
+          energy_cap_equals:  0  #kW
+  NW_OW_UR:
+    techs:
+      hydropower_plant:
+        constraints:
+          energy_cap_equals:  63381.28  #kW
+  SG:
+    techs:
+      hydropower_plant:
+        constraints:
+          energy_cap_equals:  20525.11  #kW
+  SH_ZH:
+    techs:
+      hydropower_plant:
+        constraints:
+          energy_cap_equals:  0  #kW
+  SO:
+    techs:
+      hydropower_plant:
+        constraints:
+          energy_cap_equals:  0  #kW
+  SZ_ZG:
+    techs:
+      hydropower_plant:
+        constraints:
+          energy_cap_equals:  6849.32  #kW
+  TG:
+    techs:
+      hydropower_plant:
+        constraints:
+          energy_cap_equals:  0  #kW
+  TI:
+    techs:
+      hydropower_plant:
+        constraints:
+          energy_cap_equals:  283246.58  #kW
+  VS:
+    techs:
+      hydropower_plant:
+        constraints:
+          energy_cap_equals:  679723.74  #kW

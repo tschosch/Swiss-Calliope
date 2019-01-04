@@ -1,0 +1,33 @@
+techs:  
+  supply_diesel:
+    essentials: 
+      parent: supply
+      carrier_out: diesel
+      name: 'Diesel import' 
+      color: '#BDBDBD' 
+    constraints:
+      energy_cap_max: inf 
+    costs:
+      monetary:
+        om_con: 0.08516 #CHF/kWhfuel, {Moret, 2017} {European Commission, 2009} {Beuret, 2016} {SFOS, 2016b}
+      emissions:
+        om_prod: 0.315 #kgCO2eq/kWhfuel {Moret, 2017}
+
+#convert biomass to diesel
+  biomass_to_diesel: #all values {Moret, 2017} {E4Tech, 2010}
+    essentials: 
+      parent: conversion_plus
+      carrier_in: [biowaste,wood]
+      carrier_out: diesel 
+      primary_carrier_in: wood
+      name: 'Biomass liquefaction' 
+      color: '#FFBF00'
+    constraints: 
+      lifetime: 25 
+      energy_eff: 0.6666 #the other product of the gasification (electricity) is neglected because of the small energy_eff: 0.0158, therefore, the efficiency is the share of produced diesel.
+      energy_cap_max: inf 
+    costs:
+      monetary: 
+        energy_cap: 1435 #CHF/kWfuel
+        om_annual: 71.8 #CHF/kWfuel/y
+        interest_rate: 0.025

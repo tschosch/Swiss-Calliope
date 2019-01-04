@@ -1,0 +1,43 @@
+#hydropower storage plant #the inflow.csv defines the inflow (resource) into the storage lake. the water is then stored in the storage_water plant and is converted to electricity when needed in the hydropower_plant
+
+techs:
+  supply_water:
+    essentials: 
+      parent: supply 
+      carrier_out: water 
+      name: 'Water inflow to storage lakes' 
+      color: '#0040FF'
+    constraints: 
+      resource: file=inflow.csv #kWh, calculated based on {DETEC & SFOE, 2015}, the inflow is calculated based on the historical hydropower storage production, the energy consumption of the storage pumps and the storage lake level, then the sum is scaled down to the cantonal level.
+      force_resource: true 
+      energy_cap_max: inf 
+
+  storage_water:
+    essentials: 
+      parent: storage 
+      carrier: water 
+      name: 'Storage lakes' 
+      color: '#0040FF' 
+    constraints: 
+      storage_cap_equals: 8800000 #kWh, {SFOE, 2016a}, the storage capacity is the total storage lake volume
+      energy_cap_max: inf
+
+  hydropower_plant:
+    essentials: 
+      parent: conversion 
+      carrier_in: water 
+      carrier_out: electricity 
+      name: 'Hydropower storage plant' 
+      color: '#0040FF'
+    constraints: 
+      energy_cap_max: inf
+      energy_eff: 1 #the efficiency of the plants is already included in the values from the resources sheet, therefore, an efficiency of 100% is assumed
+      lifetime: 40 #{Moret, 2017} {AES, 2014b}    
+    costs:
+      monetary:
+        interest_rate: 0.025
+        energy_cap: 4828 #CHF/kWele, {Moret, 2017} {AES, 2014b}
+        om_annual: 24.1 #CHF/kWele/y, {Moret, 2017} {AES, 2014b}
+      emissions:
+        energy_cap: 1693 #kgCO2eq/kWele, {Weidema et al., 2013}
+        interest_rate: 0

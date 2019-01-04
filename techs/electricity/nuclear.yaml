@@ -1,0 +1,20 @@
+techs:
+  nuclear_power:
+    essentials:
+      color: '#82FA58'
+      name: 'Nuclear power plant'
+      parent: conversion
+      carrier_in: nuclear
+      carrier_out: electricity
+    constraints:
+      energy_eff: 0.37 #{Moret, 2017}
+      lifetime: 60 #{AES, 2014a} {Moret, 2017}
+      energy_cap_max: inf
+    costs:
+      monetary:
+        interest_rate: 0.025
+        energy_cap: 5175 #CHF/kWele, {Moret, 2017} {IEA, 2014} {Swissnuclear, 2017}
+        om_annual: 110 #CHF/kWele/y, {IEA, 2014}
+      emissions:
+        energy_cap: 707.9 #kgCO2eq/kWele, {Moret, 2017} {Weidema et al., 2013}
+        interest_rate: 0

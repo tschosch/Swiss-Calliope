@@ -1,0 +1,74 @@
+#the installed wind capacity in the baseline 2015
+#the data is based on {Suisse Eole, 2018} and {SFOE, 2018}
+#the data is based on {Suisse Eole, 2018} for the installed wind capacity, the data is then calculated on the cantonal level with considering the Storymap: Wind energy plants {SFOE, 2018}
+
+locations: 
+
+    AI_AR,FR,GE_VD,GL,NE,TI:
+        techs:
+            wind:
+                constraints:
+                    energy_cap_equals: 0 #kW  
+    AG:
+        techs:
+            wind:
+                constraints:
+                    energy_cap_equals: 0.94 #kW    
+    BE_JU:
+        techs:
+            wind:
+                constraints:
+                    energy_cap_equals: 10762.85 #kW
+    BL_BS:
+        techs:
+            wind:
+                constraints:
+                    energy_cap_equals: 1.68 #kW
+    GR:
+        techs:
+            wind:
+                constraints:
+                    energy_cap_equals: 472.33 #kW                 
+    LU:
+        techs:
+            wind:
+                constraints:
+                    energy_cap_equals: 505.78 #kW
+    NW_OW_UR:
+        techs:
+            wind:
+                constraints:
+                    energy_cap_equals: 576.13 #kW   
+    SG:
+        techs:
+            wind:
+                constraints:
+                    energy_cap_equals: 1.67 #kW
+    SH_ZH:
+        techs:
+            wind:
+                constraints:
+                    energy_cap_equals: 6.04 #kW
+    SO:
+        techs:
+            wind:
+                constraints:
+                    energy_cap_equals: 14.78 #kW
+    SZ_ZG:
+        techs:
+            wind:
+                constraints:
+                    energy_cap_equals: 2.28 #kW
+    TG:
+        techs:
+            wind:
+                constraints:
+                    energy_cap_equals: 0.62 #kW                
+    VS:
+        techs:
+            wind:
+                constraints:
+                    energy_cap_equals: 2789.59 #kW
+
+
+                

@@ -1,0 +1,23 @@
+locations: #the nuclear power storage capacity in kW
+#all based on {Swissnuclear, 2018}
+
+    AI_AR,BL_BS,FR,GE_VD,GL,GR,LU,NE,NW_OW_UR,SG,SH_ZH,SZ_ZG,TG,TI,VS:
+        techs:
+            nuclear_power:
+                constraints:
+                    energy_cap_equals: 0
+    AG:
+        techs:
+            nuclear_power:
+                constraints:
+                    energy_cap_equals: 1950000 #kW
+    BE_JU:
+        techs:
+            nuclear_power:
+                constraints:
+                    energy_cap_equals: 373000 #kW 
+    SO:
+        techs:
+            nuclear_power:
+                constraints:
+                    energy_cap_equals:  1010000 #kW                        

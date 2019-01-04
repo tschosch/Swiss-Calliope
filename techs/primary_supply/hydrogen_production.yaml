@@ -1,0 +1,53 @@
+techs:
+#Hydrogen production 
+    naturalgas_hydrogen: #all values {Moret, 2017} {Tock, 2013}
+        essentials: 
+            parent: conversion 
+            carrier_in: naturalgas 
+            carrier_out: hydrogen 
+            name: 'Steam methane reforming (SMR) hydrogen production' 
+            color: '#FFBF00'
+        constraints:
+            lifetime: 25
+            energy_eff: 0.73 
+            energy_cap_max: inf 
+        costs:
+            monetary: 
+                energy_cap: 728 #CHF/kWH2
+                om_annual: 68.8 #CHF/kWH2/y
+                interest_rate: 0.025
+
+    electricity_hydrogen: 
+        essentials: 
+            parent: conversion 
+            carrier_in: electricity
+            carrier_out: hydrogen 
+            name: 'Electrolysis' 
+            color: '#FFBF00'
+        constraints: 
+            lifetime: 15 
+            energy_eff: 0.85 
+            energy_cap_max: inf 
+        costs:
+            monetary: 
+                energy_cap: 329 #CHF/kWH2, {Moret, 2017} {Gassner & Maréchal, 2008}
+                om_annual: 32.9 #CHF/kWH2/y, {Moret, 2017} {Gassner & Maréchal, 2008} {Tock, 2013}
+                interest_rate: 0.025
+
+    biomass_to_hydrogen: #all values {Moret, 2017} {Tock, 2013}
+        essentials: 
+            parent: conversion_plus
+            carrier_in: [wood,biowaste] 
+            carrier_out: hydrogen 
+            primary_carrier_in: wood
+            name: 'Biomass gasification' 
+            color: '#FFBF00'
+        constraints: 
+            lifetime: 25 
+            energy_eff: 0.43 
+            energy_cap_max: inf
+        costs:
+            monetary: 
+                energy_cap: 2697 #CHF/kWH2
+                om_annual: 209 #CHF/kWH2/y
+                interest_rate: 0.025 
